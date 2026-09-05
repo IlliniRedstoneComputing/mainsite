@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+    /* Core Palette */
+    --bg-main: #0a0d14;
+    --bg-surface: #121824;
+    --bg-surface-elevated: #1a2233;
+    --bg-surface-glass: rgba(18, 24, 36, 0.85);
+
+    --border-subtle: #222d42;
+    --border-focus: #374766;
+
+    /* Redstone Accents */
+    --redstone-base: #ff2d46;
+    --redstone-glow: rgba(255, 45, 70, 0.45);
+    --redstone-soft: rgba(255, 45, 70, 0.12);
+    --redstone-dim: #9c1727;
+    --redstone-wire-off: #3d1419;
+
+    /* UIUC Accents */
+    --illini-orange: #ff5f05;
+    --illini-blue: #13294b;
+    --illini-orange-soft: rgba(255, 95, 5, 0.15);
+
+    /* Text Hierarchy */
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-inverse: #0a0d14;
+
+    /* Fonts */
+    --font-sans:
+        "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, sans-serif;
+    --font-display: "Outfit", var(--font-sans);
+    --font-mono:
+        "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        monospace;
+
+    /* Layout & Spacing */
+    --max-width: 1200px;
+    --header-height: 72px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-full: 9999px;
+
+    color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: var(--font-sans);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-image:
+        radial-gradient(
+            ellipse 80% 50% at 50% -20%,
+            rgba(255, 45, 70, 0.15),
+            transparent 70%
+        ),
+        radial-gradient(
+            ellipse 60% 40% at 85% 60%,
+            rgba(19, 41, 75, 0.2),
+            transparent 60%
+        );
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-display);
+    color: var(--text-primary);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+code,
+pre {
+    font-family: var(--font-mono);
+}
+
+/* Layout Containers */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+}
+
+/* Badges & Pills */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    width: fit-content;
+}
+
+.badge-redstone {
+    background-color: var(--redstone-soft);
+    color: #ff7083;
+    border: 1px solid rgba(255, 45, 70, 0.3);
+}
+
+.badge-illini {
+    background-color: var(--illini-orange-soft);
+    color: #ff9d66;
+    border: 1px solid rgba(255, 95, 5, 0.35);
+}
+
+.badge-pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--redstone-base);
+    box-shadow: 0 0 10px var(--redstone-base);
+    animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: var(--font-sans);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff2d46, #d91c34);
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(255, 45, 70, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(255, 45, 70, 0.5);
+    filter: brightness(1.08);
+}
+
+.btn-secondary {
+    background-color: var(--bg-surface-elevated);
+    border-color: var(--border-subtle);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: #242f46;
+    border-color: var(--border-focus);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border-color: var(--border-subtle);
+    color: var(--text-primary);
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-secondary);
+}
+
+/* Glass & Card Styles */
+.card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition:
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: rgba(255, 45, 70, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Glow gradient accent */
+.card-glow-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--redstone-base),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover .card-glow-accent {
+    opacity: 1;
+}
+
+/* Section Spacing */
+.section {
+    padding-block: 4.5rem;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding-block: 3rem;
+    }
+}
+
+/* Grid Layouts */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.75rem;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
