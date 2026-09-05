@@ -14,7 +14,7 @@
 </script>
 
 <svelte:head>
-    <title>{clubInfo.name} | UIUC Computer Architecture & Redstone RSO</title>
+    <title>{clubInfo.name} | UIUC Minecraft Redstone Computing RSO</title>
     <meta
         name="description"
         content="Join Illini Redstone Computing at UIUC. We design and build real digital logic systems, ALUs, memory architectures, and programmable computer CPUs inside Minecraft."
@@ -36,7 +36,7 @@
         </div>
 
         <h1 class="hero-title">
-            Computing at the Speed of <span class="glow-text">Redstone</span>
+            COMPUTING AT THE SPEED OF <span class="glow-text">REDSTONE</span>
         </h1>
 
         <p class="hero-subtitle">
@@ -78,24 +78,23 @@
         <!-- Key Highlights Bar -->
         <div class="stats-bar">
             <div class="stat-item">
-                <span class="stat-num">100%</span>
-                <span class="stat-label">Free & Open to All Majors</span>
+                <span class="stat-num">100% FREE</span>
+                <span class="stat-label">Open to All Majors</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
-                <span class="stat-num"
-                    >{currentSchedule.day.replace("Every ", "")}s</span
+                <span class="stat-num">{currentSchedule.day.toUpperCase()}</span
                 >
                 <span class="stat-label">{currentSchedule.time}</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
-                <span class="stat-num">Siebel Center</span>
+                <span class="stat-num">SIEBEL CENTER</span>
                 <span class="stat-label">{currentSchedule.room}</span>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-item">
-                <span class="stat-num">Java 1.21+</span>
+                <span class="stat-num">JAVA 1.21+</span>
                 <span class="stat-label">Dedicated Server</span>
             </div>
         </div>
@@ -113,14 +112,14 @@
 <section class="section">
     <div class="container">
         <div class="section-heading">
-            <span class="badge badge-illini">Engineering In Game</span>
+            <span class="badge badge-illini">ENGINEERING IN MINECRAFT</span>
             <h2 class="section-title">
                 From Logic Gates to Programmable Silicon
             </h2>
             <p class="section-desc">
-                Minecraft gives us an infinite voxel sandbox where redstone dust
+                Minecraft provides an infinite voxel sandbox where redstone dust
                 acts as wiring, repeaters act as repeaters & diodes, and torches
-                serve as inverters. Here is what we construct together:
+                act as inverters. Here is what we construct together:
             </p>
         </div>
 
@@ -131,10 +130,10 @@
                 <h3 class="card-title">Arithmetic Logic (ALUs)</h3>
                 <p class="card-text">
                     High-speed ripple-carry & carry-lookahead adders, two's
-                    complement subtractors, logic bit-shifters, and
-                    zero/negative flag registers.
+                    complement subtractors, bit-shifters, and zero/negative flag
+                    registers.
                 </p>
-                <span class="card-tag">Hardware Logic</span>
+                <span class="card-tag">HARDWARE LOGIC</span>
             </div>
 
             <div class="card">
@@ -145,7 +144,7 @@
                     Dual-port read registers, instant piston-tape ROMs, address
                     decoders, and high-density redstone RAM matrix arrays.
                 </p>
-                <span class="card-tag">Sequential Circuits</span>
+                <span class="card-tag">SEQUENTIAL CIRCUITS</span>
             </div>
 
             <div class="card">
@@ -156,7 +155,7 @@
                     RISC-inspired instruction pipelines, program counters, jump
                     & branch multiplexers, and microcode execution loops.
                 </p>
-                <span class="card-tag">Computer Architecture</span>
+                <span class="card-tag">COMPUTER ARCHITECTURE</span>
             </div>
 
             <div class="card">
@@ -168,7 +167,7 @@
                     hopper-based punch card readers, and binary-to-BCD
                     converters.
                 </p>
-                <span class="card-tag">Peripherals & I/O</span>
+                <span class="card-tag">PERIPHERALS & I/O</span>
             </div>
         </div>
     </div>
@@ -178,7 +177,7 @@
 <section class="section pillars-section">
     <div class="container">
         <div class="section-heading">
-            <span class="badge badge-redstone">Why Join IRC</span>
+            <span class="badge badge-redstone">WHY JOIN IRC</span>
             <h2 class="section-title">
                 Built for Students, Driven by Curiosity
             </h2>
@@ -211,7 +210,7 @@
             <div class="cta-content">
                 <span class="badge badge-redstone">
                     <span class="badge-pulse-dot"></span>
-                    No Experience Needed
+                    NO EXPERIENCE NEEDED
                 </span>
                 <h2 class="cta-title">
                     Ready to build your first CPU in Minecraft?
@@ -264,21 +263,21 @@
     .uiuc-dot {
         width: 8px;
         height: 8px;
-        border-radius: 50%;
         background-color: var(--illini-orange);
     }
 
     .hero-title {
-        font-size: clamp(2.4rem, 6vw, 4.2rem);
-        font-weight: 800;
-        max-width: 900px;
+        font-size: clamp(2.4rem, 6vw, 4.4rem);
+        font-weight: 700;
+        max-width: 950px;
         margin-bottom: 1.25rem;
         line-height: 1.1;
+        letter-spacing: 0.03em;
     }
 
     .glow-text {
-        color: #ff334b;
-        text-shadow: 0 0 35px rgba(255, 45, 70, 0.55);
+        color: #ff334e;
+        text-shadow: 0 0 25px rgba(255, 37, 63, 0.7);
     }
 
     .hero-subtitle {
@@ -312,13 +311,15 @@
         justify-content: center;
         flex-wrap: wrap;
         gap: 2rem;
-        background: rgba(18, 24, 36, 0.6);
-        border: 1px solid var(--border-subtle);
-        backdrop-filter: blur(10px);
-        border-radius: var(--radius-lg);
-        padding: 1.25rem 2.25rem;
+        background: #101622;
+        border-top: 3px solid #2d3b55;
+        border-left: 3px solid #2d3b55;
+        border-bottom: 3px solid #0d121c;
+        border-right: 3px solid #0d121c;
+        box-shadow: 4px 4px 0px #000000;
+        padding: 1.5rem 2.5rem;
         width: 100%;
-        max-width: 880px;
+        max-width: 900px;
     }
 
     .stat-item {
@@ -330,21 +331,22 @@
 
     .stat-num {
         font-family: var(--font-display);
-        font-size: 1.25rem;
+        font-size: 1.4rem;
         font-weight: 700;
         color: #ffffff;
+        letter-spacing: 0.04em;
     }
 
     .stat-label {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         color: var(--text-muted);
         font-family: var(--font-mono);
         margin-top: 0.15rem;
     }
 
     .stat-divider {
-        width: 1px;
-        height: 32px;
+        width: 2px;
+        height: 36px;
         background-color: var(--border-subtle);
     }
 
@@ -367,9 +369,10 @@
     }
 
     .section-title {
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
         margin-top: 0.75rem;
         margin-bottom: 0.85rem;
+        letter-spacing: 0.03em;
     }
 
     .section-desc {
@@ -384,9 +387,10 @@
     }
 
     .card-title {
-        font-size: 1.2rem;
+        font-size: 1.35rem;
         color: #ffffff;
         margin-bottom: 0.65rem;
+        letter-spacing: 0.03em;
     }
 
     .card-text {
@@ -397,23 +401,23 @@
 
     .card-tag {
         display: inline-block;
-        font-family: var(--font-mono);
-        font-size: 0.72rem;
-        text-transform: uppercase;
+        font-family: var(--font-display);
+        font-size: 0.8rem;
+        font-weight: 700;
         letter-spacing: 0.05em;
         color: var(--illini-orange);
-        background: rgba(255, 95, 5, 0.1);
+        background: rgba(255, 95, 5, 0.12);
+        border: 1px solid rgba(255, 95, 5, 0.3);
         padding: 0.2rem 0.5rem;
-        border-radius: 4px;
     }
 
     /* Pillars */
     .pillars-section {
-        background: rgba(14, 19, 29, 0.5);
+        background: rgba(10, 13, 20, 0.6);
     }
 
     .pillar-card {
-        padding: 2rem;
+        padding: 2.25rem;
     }
 
     .pillar-header {
@@ -424,12 +428,13 @@
     }
 
     .pillar-icon {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .pillar-title {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
         color: #ffffff;
+        letter-spacing: 0.03em;
     }
 
     .pillar-desc {
@@ -440,28 +445,29 @@
     /* CTA Box */
     .cta-box {
         text-align: center;
-        background: radial-gradient(
-            ellipse at center,
-            #1b2438 0%,
-            #121824 100%
-        );
-        border: 1px solid rgba(255, 45, 70, 0.3);
+        background: #111824;
+        border-top: 3px solid #ff4d64;
+        border-left: 3px solid #ff4d64;
+        border-bottom: 3px solid #590914;
+        border-right: 3px solid #590914;
         padding: 4rem 2rem;
+        box-shadow: 6px 6px 0px #000000;
     }
 
     .cta-content {
         display: flex;
         flex-direction: column;
         align-items: center;
-        max-width: 640px;
+        max-width: 660px;
         margin-inline: auto;
     }
 
     .cta-title {
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
         margin-top: 1rem;
         margin-bottom: 0.85rem;
         color: #ffffff;
+        letter-spacing: 0.03em;
     }
 
     .cta-desc {

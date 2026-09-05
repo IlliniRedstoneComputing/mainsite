@@ -23,42 +23,27 @@
         <!-- Brand Logo -->
         <a href="/" class="brand" onclick={closeMenu}>
             <div class="brand-icon">
-                <svg
-                    viewBox="0 0 24 24"
-                    width="22"
-                    height="22"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                >
-                    <!-- Redstone Torch / Circuit Icon -->
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none">
+                    <!-- Minecraft Redstone Torch Block Icon -->
                     <rect
-                        x="9"
-                        y="11"
-                        width="6"
-                        height="10"
-                        rx="1"
-                        fill="#713f12"
+                        x="10"
+                        y="10"
+                        width="4"
+                        height="11"
+                        fill="#854d0e"
                         stroke="#451a03"
+                        stroke-width="1.5"
                     />
                     <rect
-                        x="8"
-                        y="4"
-                        width="8"
-                        height="7"
-                        rx="2"
-                        fill="#ff2d46"
-                        stroke="#ff5c72"
+                        x="7"
+                        y="3"
+                        width="10"
+                        height="8"
+                        fill="#ff253f"
+                        stroke="#ff6b7e"
+                        stroke-width="1.5"
                     />
-                    <line
-                        x1="12"
-                        y1="2"
-                        x2="12"
-                        y2="4"
-                        stroke="#ff8595"
-                        stroke-linecap="round"
-                    />
-                    <circle cx="12" cy="7.5" r="1.5" fill="#ffffff" />
+                    <rect x="9" y="5" width="6" height="4" fill="#ffffff" />
                 </svg>
             </div>
             <div class="brand-text">
@@ -129,7 +114,7 @@
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
+                stroke-width="2.5"
             >
                 {#if isMobileMenuOpen}
                     <line x1="18" y1="6" x2="6" y2="18" />
@@ -197,12 +182,11 @@
         top: 0;
         z-index: 100;
         height: var(--header-height);
-        background-color: rgba(10, 13, 20, 0.85);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border-bottom: 1px solid var(--border-subtle);
+        background-color: rgba(10, 13, 19, 0.95);
+        border-bottom: 3px solid #1e293b;
         display: flex;
         align-items: center;
+        box-shadow: 0 4px 0px rgba(0, 0, 0, 0.4);
     }
 
     .header-inner {
@@ -222,12 +206,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: #19202f;
-        border: 1px solid #2a3750;
-        border-radius: var(--radius-md);
-        box-shadow: 0 0 12px rgba(255, 45, 70, 0.2);
+        width: 42px;
+        height: 42px;
+        background: #141b27;
+        border-top: 2px solid #374662;
+        border-left: 2px solid #374662;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
+        box-shadow: 2px 2px 0px #000000;
     }
 
     .brand-text {
@@ -237,51 +223,65 @@
 
     .brand-title {
         font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 1.125rem;
+        font-weight: 700;
+        font-size: 1.35rem;
         color: #ffffff;
-        line-height: 1.1;
-        letter-spacing: -0.01em;
+        line-height: 1.05;
+        letter-spacing: 0.03em;
     }
 
     .brand-subtitle {
-        font-size: 0.75rem;
-        font-weight: 600;
+        font-size: 0.8rem;
+        font-weight: 700;
         color: var(--illini-orange);
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        font-family: var(--font-mono);
+        font-family: var(--font-display);
     }
 
     .desktop-nav {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.4rem;
     }
 
     .nav-link {
-        padding: 0.5rem 0.9rem;
-        border-radius: var(--radius-sm);
-        font-size: 0.9375rem;
-        font-weight: 500;
+        padding: 0.5rem 1rem;
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 600;
         color: var(--text-secondary);
-        transition: all 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        border-top: 2px solid transparent;
+        border-left: 2px solid transparent;
+        border-bottom: 2px solid transparent;
+        border-right: 2px solid transparent;
+        transition: all 0.1s ease;
     }
 
     .nav-link:hover {
-        color: var(--text-primary);
-        background-color: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
+        background-color: #172132;
+        border-top-color: #384a6b;
+        border-left-color: #384a6b;
+        border-bottom-color: #0b0f17;
+        border-right-color: #0b0f17;
     }
 
     .nav-link.active {
         color: #ffffff;
-        background-color: rgba(255, 45, 70, 0.12);
-        border: 1px solid rgba(255, 45, 70, 0.25);
+        background-color: rgba(255, 37, 63, 0.15);
+        border-top-color: #ff4d64;
+        border-left-color: #ff4d64;
+        border-bottom-color: #590914;
+        border-right-color: #590914;
+        box-shadow: 2px 2px 0px #000000;
     }
 
     .btn-sm {
-        padding: 0.5rem 1.1rem;
-        font-size: 0.875rem;
+        padding: 0.55rem 1.1rem;
+        font-size: 0.95rem;
     }
 
     .desktop-actions {
@@ -291,11 +291,14 @@
 
     .mobile-toggle {
         display: none;
-        background: none;
-        border: 1px solid var(--border-subtle);
-        border-radius: var(--radius-sm);
+        background: #141b27;
+        border-top: 2px solid #374662;
+        border-left: 2px solid #374662;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
+        box-shadow: 2px 2px 0px #000000;
         color: var(--text-primary);
-        padding: 0.4rem;
+        padding: 0.45rem;
         cursor: pointer;
     }
 
@@ -304,10 +307,10 @@
         top: var(--header-height);
         left: 0;
         right: 0;
-        background-color: var(--bg-surface);
-        border-bottom: 1px solid var(--border-subtle);
+        background-color: #0f141e;
+        border-bottom: 3px solid #1e293b;
         padding-block: 1.5rem;
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 16px 0px rgba(0, 0, 0, 0.6);
     }
 
     .mobile-drawer-inner {
@@ -318,17 +321,25 @@
 
     .mobile-link {
         padding: 0.75rem 1rem;
-        border-radius: var(--radius-md);
-        font-size: 1rem;
-        font-weight: 600;
+        font-family: var(--font-display);
+        font-size: 1.15rem;
+        font-weight: 700;
+        text-transform: uppercase;
         color: var(--text-secondary);
-        background-color: var(--bg-main);
+        background-color: #161e2c;
+        border-top: 2px solid #2d3b55;
+        border-left: 2px solid #2d3b55;
+        border-bottom: 2px solid #0d121c;
+        border-right: 2px solid #0d121c;
     }
 
     .mobile-link.active {
         color: #ffffff;
-        background-color: rgba(255, 45, 70, 0.15);
-        border: 1px solid rgba(255, 45, 70, 0.3);
+        background-color: rgba(255, 37, 63, 0.2);
+        border-top-color: #ff4d64;
+        border-left-color: #ff4d64;
+        border-bottom-color: #590914;
+        border-right-color: #590914;
     }
 
     .mobile-cta {

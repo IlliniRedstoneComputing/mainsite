@@ -36,7 +36,7 @@
                     UIUC Registered Student Organization
                 </span>
                 <h1 class="page-title">
-                    Bridging Abstract Logic & Physical Creation
+                    BRIDGING ABSTRACT LOGIC & PHYSICAL VOXELS
                 </h1>
                 <p class="lead-text">
                     Illini Redstone Computing was founded by University of
@@ -54,7 +54,7 @@
             <div class="grid-2 story-grid">
                 <div class="story-card card">
                     <div class="card-glow-accent"></div>
-                    <h2 class="card-section-title">Our Mission</h2>
+                    <h2 class="card-section-title">OUR MISSION</h2>
                     <p>
                         In traditional computer engineering courses like ECE 120
                         or CS 233, students study logic gates, Karnaugh maps,
@@ -74,7 +74,7 @@
 
                 <div class="story-card card">
                     <div class="card-glow-accent"></div>
-                    <h2 class="card-section-title">Who Can Join?</h2>
+                    <h2 class="card-section-title">WHO CAN JOIN?</h2>
                     <p>
                         <strong
                             >Any currently enrolled student at the University of
@@ -89,9 +89,9 @@
                         to bring your ideas to life.
                     </p>
                     <div class="badge-row">
-                        <span class="pill-tag">Open to All Majors</span>
-                        <span class="pill-tag">No Experience Required</span>
-                        <span class="pill-tag">Free Membership</span>
+                        <span class="pill-tag">OPEN TO ALL MAJORS</span>
+                        <span class="pill-tag">NO EXPERIENCE REQUIRED</span>
+                        <span class="pill-tag">100% FREE MEMBERSHIP</span>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
             <div class="section-heading">
                 <span class="badge badge-redstone">
                     <span class="badge-pulse-dot"></span>
-                    Weekly Schedule
+                    WEEKLY SCHEDULE
                 </span>
                 <h2 class="section-title">Join Us at Our Next Meeting</h2>
                 <p class="section-desc">
@@ -120,7 +120,7 @@
                     <div class="detail-box">
                         <div class="detail-icon">📅</div>
                         <div class="detail-info">
-                            <span class="detail-label">When</span>
+                            <span class="detail-label">WHEN</span>
                             <h3 class="detail-heading">
                                 {currentSchedule.day}
                             </h3>
@@ -134,7 +134,7 @@
                     <div class="detail-box">
                         <div class="detail-icon">📍</div>
                         <div class="detail-info">
-                            <span class="detail-label">Where</span>
+                            <span class="detail-label">WHERE</span>
                             <h3 class="detail-heading">
                                 {currentSchedule.location}
                             </h3>
@@ -150,7 +150,7 @@
                     <div class="detail-box">
                         <div class="detail-icon">🎒</div>
                         <div class="detail-info">
-                            <span class="detail-label">What to Bring</span>
+                            <span class="detail-label">WHAT TO BRING</span>
                             <ul class="bring-list">
                                 <li>Laptop with Minecraft Java Edition</li>
                                 <li>
@@ -186,7 +186,7 @@
     <section class="section curriculum-section">
         <div class="container">
             <div class="section-heading">
-                <span class="badge badge-illini">Skill Progression</span>
+                <span class="badge badge-illini">SKILL PROGRESSION</span>
                 <h2 class="section-title">Semester Workshop Curriculum</h2>
                 <p class="section-desc">
                     Our curriculum takes you step-by-step from raw redstone dust
@@ -234,10 +234,10 @@
                 <div class="server-inner">
                     <div class="server-text">
                         <span class="badge badge-redstone"
-                            >IRC Dedicated Build Server</span
+                            >IRC DEDICATED BUILD SERVER</span
                         >
                         <h2 class="server-title">
-                            Engineered for Massive Circuits
+                            ENGINEERED FOR MASSIVE CIRCUITS
                         </h2>
                         <p>
                             Running complex redstone computers requires precise
@@ -267,13 +267,13 @@
                             >
                         </div>
                         <div class="spec-card">
-                            <span class="spec-val">Carpet Mod</span>
+                            <span class="spec-val">CARPET MOD</span>
                             <span class="spec-desc"
                                 >Tick Freeze & Step Debugging</span
                             >
                         </div>
                         <div class="spec-card">
-                            <span class="spec-val">Creative Plots</span>
+                            <span class="spec-val">CREATIVE PLOTS</span>
                             <span class="spec-desc"
                                 >Isolated Sandbox & Schematics</span
                             >
@@ -336,13 +336,13 @@
         text-align: center;
         background: radial-gradient(
             ellipse 60% 40% at 50% 0%,
-            rgba(19, 41, 75, 0.3),
+            rgba(19, 41, 75, 0.35),
             transparent 70%
         );
     }
 
     .hero-content {
-        max-width: 800px;
+        max-width: 850px;
         margin-inline: auto;
         display: flex;
         flex-direction: column;
@@ -350,9 +350,10 @@
     }
 
     .page-title {
-        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
         margin-top: 1rem;
         margin-bottom: 1.25rem;
+        letter-spacing: 0.03em;
     }
 
     .lead-text {
@@ -364,7 +365,6 @@
     .uiuc-dot {
         width: 8px;
         height: 8px;
-        border-radius: 50%;
         background-color: var(--illini-orange);
     }
 
@@ -374,9 +374,10 @@
     }
 
     .card-section-title {
-        font-size: 1.45rem;
+        font-size: 1.6rem;
         margin-bottom: 1rem;
         color: #ffffff;
+        letter-spacing: 0.03em;
     }
 
     .badge-row {
@@ -388,12 +389,16 @@
 
     .pill-tag {
         background: rgba(255, 95, 5, 0.12);
-        border: 1px solid rgba(255, 95, 5, 0.3);
+        border-top: 2px solid #ff7b2b;
+        border-left: 2px solid #ff7b2b;
+        border-bottom: 2px solid #802f00;
+        border-right: 2px solid #802f00;
         color: #ff9d66;
         padding: 0.35rem 0.75rem;
-        border-radius: var(--radius-full);
-        font-size: 0.8rem;
-        font-weight: 600;
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
     }
 
     /* Meetings Card */
@@ -419,25 +424,29 @@
         font-size: 2rem;
         background: #192233;
         padding: 0.75rem;
-        border-radius: var(--radius-md);
-        border: 1px solid var(--border-subtle);
+        border-top: 2px solid #3b4d6e;
+        border-left: 2px solid #3b4d6e;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: 2px 2px 0px #000000;
     }
 
     .detail-label {
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
+        font-family: var(--font-display);
+        font-size: 0.85rem;
         color: var(--illini-orange);
         text-transform: uppercase;
         letter-spacing: 0.08em;
     }
 
     .detail-heading {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
         color: #ffffff;
         margin-block: 0.2rem;
+        letter-spacing: 0.03em;
     }
 
     .detail-sub {
@@ -446,7 +455,7 @@
     }
 
     .highlight-room {
-        color: #ff7083;
+        color: #ff5c72;
         font-weight: 700;
     }
 
@@ -459,18 +468,18 @@
     .semester-pill {
         display: inline-block;
         margin-top: 0.5rem;
+        font-family: var(--font-mono);
         font-size: 0.75rem;
-        background: rgba(255, 255, 255, 0.05);
+        background: #19202f;
         border: 1px solid var(--border-subtle);
-        padding: 0.2rem 0.6rem;
-        border-radius: var(--radius-full);
+        padding: 0.25rem 0.6rem;
         color: var(--text-secondary);
     }
 
     .bring-list {
         list-style: none;
         margin-top: 0.35rem;
-        font-size: 0.88rem;
+        font-size: 0.9rem;
         display: flex;
         flex-direction: column;
         gap: 0.35rem;
@@ -478,7 +487,7 @@
     }
 
     .bring-list li::before {
-        content: "✔ ";
+        content: "■ ";
         color: var(--illini-orange);
         font-weight: bold;
     }
@@ -490,7 +499,7 @@
         justify-content: space-between;
         gap: 1.5rem;
         padding-top: 1.75rem;
-        border-top: 1px solid var(--border-subtle);
+        border-top: 2px solid var(--border-subtle);
     }
 
     .meeting-note {
@@ -516,9 +525,10 @@
     }
 
     .section-title {
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
         margin-top: 0.75rem;
         margin-bottom: 0.85rem;
+        letter-spacing: 0.03em;
     }
 
     .section-desc {
@@ -539,22 +549,25 @@
         display: flex;
         gap: 1.75rem;
         align-items: flex-start;
-        padding: 1.5rem 1.75rem;
+        padding: 1.75rem;
     }
 
     .track-step-num {
         font-family: var(--font-display);
-        font-size: 2rem;
-        font-weight: 800;
+        font-size: 2.2rem;
+        font-weight: 700;
         color: var(--redstone-base);
-        background: rgba(255, 45, 70, 0.1);
-        width: 54px;
-        height: 54px;
+        background: #1a1622;
+        width: 58px;
+        height: 58px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: var(--radius-md);
-        border: 1px solid rgba(255, 45, 70, 0.25);
+        border-top: 3px solid #ff4d64;
+        border-left: 3px solid #ff4d64;
+        border-bottom: 3px solid #590914;
+        border-right: 3px solid #590914;
+        box-shadow: 2px 2px 0px #000000;
         flex-shrink: 0;
     }
 
@@ -572,35 +585,36 @@
     }
 
     .track-title {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
         color: #ffffff;
+        letter-spacing: 0.02em;
     }
 
     .track-badge {
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
-        padding: 0.2rem 0.65rem;
-        border-radius: var(--radius-full);
+        font-family: var(--font-display);
+        font-size: 0.82rem;
+        padding: 0.25rem 0.65rem;
         font-weight: 700;
         text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 
     .track-badge.beginner {
         background: rgba(34, 197, 94, 0.15);
         color: #4ade80;
-        border: 1px solid rgba(34, 197, 94, 0.3);
+        border: 1px solid rgba(34, 197, 94, 0.4);
     }
 
     .track-badge.intermediate {
         background: rgba(234, 179, 8, 0.15);
         color: #facc15;
-        border: 1px solid rgba(234, 179, 8, 0.3);
+        border: 1px solid rgba(234, 179, 8, 0.4);
     }
 
     .track-badge.advanced {
-        background: rgba(255, 45, 70, 0.15);
-        color: #ff7083;
-        border: 1px solid rgba(255, 45, 70, 0.3);
+        background: rgba(255, 37, 63, 0.15);
+        color: #ff6e82;
+        border: 1px solid rgba(255, 37, 63, 0.4);
     }
 
     .track-summary {
@@ -619,18 +633,14 @@
         font-size: 0.8rem;
         background: #19202f;
         padding: 0.25rem 0.6rem;
-        border-radius: 4px;
+        border: 1px solid var(--border-subtle);
         color: #cbd5e1;
     }
 
     /* Server Details */
     .server-box {
         padding: 3rem;
-        background: radial-gradient(
-            ellipse at 80% 50%,
-            #1a2538 0%,
-            #101622 100%
-        );
+        background: #111722;
     }
 
     .server-inner {
@@ -641,10 +651,11 @@
     }
 
     .server-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin-top: 0.75rem;
         margin-bottom: 1rem;
         color: #ffffff;
+        letter-spacing: 0.03em;
     }
 
     .server-meta-tags {
@@ -661,20 +672,23 @@
     }
 
     .meta-label {
-        font-family: var(--font-mono);
-        font-size: 0.72rem;
+        font-family: var(--font-display);
+        font-size: 0.82rem;
         color: var(--illini-orange);
         letter-spacing: 0.08em;
     }
 
     .meta-code {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         font-weight: 700;
         color: #ffffff;
         background: #1b2435;
-        padding: 0.35rem 0.75rem;
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--border-subtle);
+        padding: 0.45rem 0.85rem;
+        border-top: 2px solid #384968;
+        border-left: 2px solid #384968;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
+        box-shadow: 2px 2px 0px #000000;
     }
 
     .meta-val {
@@ -690,19 +704,23 @@
     }
 
     .spec-card {
-        background: rgba(10, 13, 20, 0.6);
-        border: 1px solid var(--border-subtle);
+        background: #161e2c;
+        border-top: 2px solid #33435e;
+        border-left: 2px solid #33435e;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
         padding: 1rem 1.25rem;
-        border-radius: var(--radius-md);
         display: flex;
         flex-direction: column;
+        box-shadow: 2px 2px 0px #000000;
     }
 
     .spec-val {
-        font-family: var(--font-mono);
-        font-size: 1.25rem;
-        font-weight: 800;
+        font-family: var(--font-display);
+        font-size: 1.4rem;
+        font-weight: 700;
         color: #ff5c72;
+        letter-spacing: 0.04em;
     }
 
     .spec-desc {
@@ -718,7 +736,7 @@
 
     /* FAQ */
     .faq-container {
-        max-width: 800px;
+        max-width: 850px;
         margin-inline: auto;
         display: flex;
         flex-direction: column;
@@ -742,15 +760,17 @@
         color: #ffffff;
         text-align: left;
         cursor: pointer;
-        font-size: 1.05rem;
-        font-weight: 600;
-        font-family: var(--font-sans);
+        font-size: 1.15rem;
+        font-weight: 700;
+        font-family: var(--font-display);
+        letter-spacing: 0.02em;
     }
 
     .faq-icon {
         font-family: var(--font-mono);
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         color: var(--illini-orange);
+        font-weight: bold;
     }
 
     .faq-answer {
@@ -758,7 +778,7 @@
         font-size: 0.95rem;
         line-height: 1.6;
         color: var(--text-secondary);
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding-top: 0.75rem;
+        border-top: 2px solid rgba(255, 255, 255, 0.05);
+        padding-top: 0.85rem;
     }
 </style>

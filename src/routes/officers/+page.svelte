@@ -25,7 +25,7 @@
                     <span class="uiuc-dot"></span>
                     RSO Leadership Team
                 </span>
-                <h1 class="page-title">The Engineers Behind the Redstone</h1>
+                <h1 class="page-title">THE ENGINEERS BEHIND THE REDSTONE</h1>
                 <p class="lead-text">
                     Meet the executive board and project leads who organize
                     workshops, maintain our Minecraft server infrastructure, and
@@ -52,7 +52,6 @@
                                     class="avatar-img"
                                     loading="lazy"
                                     onerror={e => {
-                                        // Graceful fallback if offline or username not found
                                         const target =
                                             e.currentTarget as HTMLImageElement;
                                         target.src =
@@ -78,7 +77,7 @@
                             </div>
                             {#if officer.discordHandle}
                                 <div class="handle-item">
-                                    <span class="handle-label">Discord:</span>
+                                    <span class="handle-label">DISCORD:</span>
                                     <span class="handle-val discord-tag"
                                         >{officer.discordHandle}</span
                                     >
@@ -92,7 +91,9 @@
                         <!-- Favorite Build -->
                         {#if officer.favoriteRedstoneBuild}
                             <div class="build-quote">
-                                <span class="build-label">FAVORITE BUILD:</span>
+                                <span class="build-label"
+                                    >FAVORITE REDSTONE BUILD:</span
+                                >
                                 <p class="build-val">
                                     "{officer.favoriteRedstoneBuild}"
                                 </p>
@@ -112,7 +113,7 @@
                 <div class="involved-content">
                     <span class="badge badge-redstone">
                         <span class="badge-pulse-dot"></span>
-                        Leadership Opportunities
+                        LEADERSHIP OPPORTUNITIES
                     </span>
                     <h2 class="involved-title">
                         Want to Lead a Project or Workshop?
@@ -157,13 +158,13 @@
         text-align: center;
         background: radial-gradient(
             ellipse 60% 40% at 50% 0%,
-            rgba(255, 45, 70, 0.12),
+            rgba(255, 37, 63, 0.15),
             transparent 70%
         );
     }
 
     .hero-content {
-        max-width: 800px;
+        max-width: 850px;
         margin-inline: auto;
         display: flex;
         flex-direction: column;
@@ -171,9 +172,10 @@
     }
 
     .page-title {
-        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
         margin-top: 1rem;
         margin-bottom: 1.25rem;
+        letter-spacing: 0.03em;
     }
 
     .lead-text {
@@ -185,7 +187,6 @@
     .uiuc-dot {
         width: 8px;
         height: 8px;
-        border-radius: 50%;
         background-color: var(--illini-orange);
     }
 
@@ -209,14 +210,16 @@
     }
 
     .avatar-wrapper {
-        width: 72px;
-        height: 72px;
-        border-radius: var(--radius-md);
+        width: 76px;
+        height: 76px;
         background: #19202f;
-        border: 2px solid var(--border-subtle);
+        border-top: 3px solid #3b4d6e;
+        border-left: 3px solid #3b4d6e;
+        border-bottom: 3px solid #0b0f17;
+        border-right: 3px solid #0b0f17;
+        box-shadow: 3px 3px 0px #000000;
         overflow: hidden;
         flex-shrink: 0;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     }
 
     .avatar-img {
@@ -232,8 +235,8 @@
     }
 
     .role-badge {
-        font-family: var(--font-mono);
-        font-size: 0.72rem;
+        font-family: var(--font-display);
+        font-size: 0.82rem;
         font-weight: 700;
         color: var(--illini-orange);
         text-transform: uppercase;
@@ -242,9 +245,10 @@
     }
 
     .officer-name {
-        font-size: 1.35rem;
+        font-size: 1.5rem;
         color: #ffffff;
-        line-height: 1.2;
+        line-height: 1.1;
+        letter-spacing: 0.02em;
     }
 
     .officer-major {
@@ -262,10 +266,12 @@
         display: flex;
         flex-direction: column;
         gap: 0.35rem;
-        background: rgba(0, 0, 0, 0.25);
-        border: 1px solid var(--border-subtle);
+        background: #090c12;
+        border-top: 2px solid #202b3d;
+        border-left: 2px solid #202b3d;
+        border-bottom: 2px solid #05070a;
+        border-right: 2px solid #05070a;
         padding: 0.65rem 0.85rem;
-        border-radius: var(--radius-sm);
         margin-bottom: 1.15rem;
     }
 
@@ -278,7 +284,8 @@
 
     .handle-label {
         color: var(--text-muted);
-        font-family: var(--font-mono);
+        font-family: var(--font-display);
+        font-weight: 700;
     }
 
     .handle-val {
@@ -287,7 +294,7 @@
     }
 
     .handle-val.discord-tag {
-        color: #818cf8;
+        color: #93c5fd;
     }
 
     .officer-bio {
@@ -298,24 +305,23 @@
     }
 
     .build-quote {
-        background: rgba(255, 45, 70, 0.06);
+        background: rgba(255, 37, 63, 0.08);
         border-left: 3px solid var(--redstone-base);
         padding: 0.75rem 1rem;
-        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     }
 
     .build-label {
         display: block;
-        font-family: var(--font-mono);
-        font-size: 0.68rem;
+        font-family: var(--font-display);
+        font-size: 0.75rem;
         font-weight: 700;
-        color: #ff7083;
-        letter-spacing: 0.08em;
+        color: #ff7084;
+        letter-spacing: 0.06em;
         margin-bottom: 0.2rem;
     }
 
     .build-val {
-        font-size: 0.82rem;
+        font-size: 0.85rem;
         font-style: italic;
         color: #cbd5e1;
         margin: 0;
@@ -323,14 +329,14 @@
 
     /* Get Involved */
     .get-involved-card {
-        background: radial-gradient(
-            ellipse at center,
-            #1b2438 0%,
-            #121824 100%
-        );
-        border: 1px solid rgba(255, 95, 5, 0.35);
+        background: #111824;
+        border-top: 3px solid #ff7b2b;
+        border-left: 3px solid #ff7b2b;
+        border-bottom: 3px solid #802f00;
+        border-right: 3px solid #802f00;
         padding: 3.5rem 2rem;
         text-align: center;
+        box-shadow: 6px 6px 0px #000000;
     }
 
     .involved-content {
@@ -342,10 +348,11 @@
     }
 
     .involved-title {
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
+        font-size: clamp(1.8rem, 4vw, 2.7rem);
         color: #ffffff;
         margin-top: 1rem;
         margin-bottom: 0.85rem;
+        letter-spacing: 0.03em;
     }
 
     .involved-desc {

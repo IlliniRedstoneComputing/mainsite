@@ -15,34 +15,24 @@
                             width="20"
                             height="20"
                             fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
                         >
                             <rect
-                                x="9"
-                                y="11"
-                                width="6"
-                                height="10"
-                                rx="1"
-                                fill="#713f12"
+                                x="10"
+                                y="10"
+                                width="4"
+                                height="11"
+                                fill="#854d0e"
                                 stroke="#451a03"
+                                stroke-width="1.5"
                             />
                             <rect
-                                x="8"
-                                y="4"
-                                width="8"
-                                height="7"
-                                rx="2"
-                                fill="#ff2d46"
-                                stroke="#ff5c72"
-                            />
-                            <line
-                                x1="12"
-                                y1="2"
-                                x2="12"
-                                y2="4"
-                                stroke="#ff8595"
-                                stroke-linecap="round"
+                                x="7"
+                                y="3"
+                                width="10"
+                                height="8"
+                                fill="#ff253f"
+                                stroke="#ff6b7e"
+                                stroke-width="1.5"
                             />
                         </svg>
                     </div>
@@ -55,28 +45,28 @@
                 </p>
                 <div class="affiliation-badge">
                     <span class="uiuc-dot"></span>
-                    <span>University of Illinois Urbana-Champaign RSO</span>
+                    <span>UIUC REGISTERED STUDENT ORGANIZATION</span>
                 </div>
             </div>
 
             <!-- Column 2: Navigation -->
             <div class="footer-col">
-                <h4 class="col-title">Navigation</h4>
+                <h4 class="col-title">NAVIGATION</h4>
                 <ul class="link-list">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About & Mission</a></li>
-                    <li><a href="/about#meetings">Meeting Times & Rooms</a></li>
-                    <li><a href="/about#faq">Frequently Asked Questions</a></li>
-                    <li><a href="/officers">Executive Board & Leads</a></li>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/about">ABOUT & MISSION</a></li>
+                    <li><a href="/about#meetings">MEETING TIMES & ROOMS</a></li>
+                    <li><a href="/about#faq">FREQUENTLY ASKED QUESTIONS</a></li>
+                    <li><a href="/officers">EXECUTIVE BOARD & LEADS</a></li>
                 </ul>
             </div>
 
             <!-- Column 3: Meetings & Server -->
             <div class="footer-col">
-                <h4 class="col-title">Weekly Meetings</h4>
+                <h4 class="col-title">WEEKLY MEETINGS</h4>
                 <div class="meeting-highlight">
                     <p class="meeting-time">
-                        <strong>{currentSchedule.day}</strong>
+                        <strong>{currentSchedule.day.toUpperCase()}</strong>
                     </p>
                     <p>{currentSchedule.time}</p>
                     <p class="meeting-room">
@@ -84,7 +74,7 @@
                     </p>
                 </div>
                 <h4 class="col-title" style="margin-top: 1.25rem;">
-                    Multiplayer Server
+                    MULTIPLAYER SERVER
                 </h4>
                 <p class="server-tag"><code>{clubInfo.serverIp}</code></p>
                 <p class="server-ver">{clubInfo.minecraftVersion}</p>
@@ -92,7 +82,7 @@
 
             <!-- Column 4: Community & Contact -->
             <div class="footer-col">
-                <h4 class="col-title">Connect</h4>
+                <h4 class="col-title">CONNECT</h4>
                 <ul class="link-list">
                     <li>
                         <a
@@ -101,7 +91,7 @@
                             rel="noopener noreferrer"
                             class="external-link"
                         >
-                            Discord Community &rarr;
+                            DISCORD COMMUNITY &rarr;
                         </a>
                     </li>
                     <li>
@@ -111,7 +101,7 @@
                             rel="noopener noreferrer"
                             class="external-link"
                         >
-                            GitHub Organization &rarr;
+                            GITHUB ORGANIZATION &rarr;
                         </a>
                     </li>
                     <li>
@@ -144,8 +134,8 @@
 <style>
     .footer {
         margin-top: auto;
-        background-color: #080a0f;
-        border-top: 1px solid var(--border-subtle);
+        background-color: #07090e;
+        border-top: 3px solid #1c2637;
         padding-top: 4rem;
         padding-bottom: 2.5rem;
     }
@@ -182,18 +172,21 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 32px;
-        height: 32px;
-        background: #19202f;
-        border: 1px solid #2a3750;
-        border-radius: var(--radius-sm);
+        width: 36px;
+        height: 36px;
+        background: #141b27;
+        border-top: 2px solid #374662;
+        border-left: 2px solid #374662;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
     }
 
     .brand-title {
         font-family: var(--font-display);
         font-weight: 700;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         color: #ffffff;
+        letter-spacing: 0.03em;
     }
 
     .brand-desc {
@@ -208,28 +201,29 @@
         align-items: center;
         gap: 0.5rem;
         padding: 0.35rem 0.75rem;
-        border-radius: var(--radius-sm);
         background-color: rgba(19, 41, 75, 0.4);
-        border: 1px solid rgba(255, 95, 5, 0.3);
+        border-top: 2px solid #ff7b2b;
+        border-left: 2px solid #ff7b2b;
+        border-bottom: 2px solid #802f00;
+        border-right: 2px solid #802f00;
+        font-family: var(--font-display);
         font-size: 0.8rem;
         color: #cbd5e1;
-        font-weight: 500;
+        font-weight: 700;
     }
 
     .uiuc-dot {
         width: 8px;
         height: 8px;
-        border-radius: 50%;
         background-color: var(--illini-orange);
     }
 
     .col-title {
-        font-size: 0.9rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--text-primary);
+        font-size: 1.05rem;
+        letter-spacing: 0.06em;
+        color: #ffffff;
         margin-bottom: 1rem;
-        font-family: var(--font-mono);
+        font-family: var(--font-display);
     }
 
     .link-list {
@@ -240,32 +234,40 @@
     }
 
     .link-list a {
-        font-size: 0.92rem;
+        font-family: var(--font-display);
+        font-size: 0.95rem;
+        font-weight: 600;
         color: var(--text-secondary);
         transition: color 0.15s ease;
+        letter-spacing: 0.03em;
     }
 
     .link-list a:hover {
-        color: #ffffff;
+        color: #ff5c72;
     }
 
     .meeting-highlight {
         font-size: 0.88rem;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid var(--border-subtle);
+        background: #101622;
+        border-top: 2px solid #2d3b55;
+        border-left: 2px solid #2d3b55;
+        border-bottom: 2px solid #0d121c;
+        border-right: 2px solid #0d121c;
         padding: 0.85rem;
-        border-radius: var(--radius-md);
+        box-shadow: 2px 2px 0px #000000;
     }
 
     .meeting-time {
         color: #ffffff;
+        font-family: var(--font-display);
+        font-size: 1rem;
         margin-bottom: 0.2rem;
     }
 
     .meeting-room {
         color: #ff9d66;
         margin-top: 0.3rem;
-        font-weight: 500;
+        font-weight: 600;
     }
 
     .server-tag {
@@ -276,10 +278,13 @@
 
     .server-tag code {
         background: #161f30;
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        border: 1px solid var(--border-subtle);
-        color: #ff7083;
+        padding: 0.3rem 0.6rem;
+        border-top: 2px solid #33435e;
+        border-left: 2px solid #33435e;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
+        color: #ff6e82;
+        font-weight: 700;
     }
 
     .server-ver {
@@ -288,7 +293,7 @@
     }
 
     .footer-bottom {
-        border-top: 1px solid var(--border-subtle);
+        border-top: 2px solid #1c2637;
         padding-top: 2rem;
         display: flex;
         flex-direction: column;
@@ -304,7 +309,8 @@
     }
 
     .copyright {
-        font-size: 0.8rem;
+        font-size: 0.82rem;
         color: var(--text-muted);
+        font-family: var(--font-display);
     }
 </style>

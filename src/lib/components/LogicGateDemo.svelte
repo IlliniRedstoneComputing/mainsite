@@ -69,11 +69,11 @@
                 <span class="badge-pulse-dot"></span>
                 Interactive Logic Simulator
             </span>
-            <h3 class="sim-title">Silicon Made of Stone & Dust</h3>
+            <h3 class="sim-title">Silicon Made of Stone & Redstone Dust</h3>
         </div>
         <p class="sim-subtitle">
-            Test how basic logic primitives function before scaling into 8-bit
-            registers and ALUs.
+            Test how basic Minecraft logic gates function before scaling up into
+            8-bit registers and ALUs.
         </p>
     </div>
 
@@ -98,16 +98,23 @@
             <div class="input-node">
                 <button
                     type="button"
-                    class="lever-btn"
+                    class="mc-lever-btn"
                     class:active={inputA}
                     onclick={() => (inputA = !inputA)}
                     aria-label="Toggle input A"
                 >
-                    <span class="lever-handle"></span>
-                    <span class="lever-label">Input A</span>
-                    <span class="state-indicator" class:on={inputA}
-                        >{inputA ? "1 (HIGH)" : "0 (LOW)"}</span
-                    >
+                    <div class="lever-mount">
+                        <div
+                            class="lever-stick"
+                            class:stick-flipped={inputA}
+                        ></div>
+                    </div>
+                    <div class="lever-meta">
+                        <span class="lever-label">INPUT A</span>
+                        <span class="state-indicator" class:on={inputA}
+                            >{inputA ? "HIGH [1]" : "LOW [0]"}</span
+                        >
+                    </div>
                 </button>
                 <div class="wire wire-h" class:wire-powered={inputA}></div>
             </div>
@@ -116,16 +123,23 @@
                 <div class="input-node">
                     <button
                         type="button"
-                        class="lever-btn"
+                        class="mc-lever-btn"
                         class:active={inputB}
                         onclick={() => (inputB = !inputB)}
                         aria-label="Toggle input B"
                     >
-                        <span class="lever-handle"></span>
-                        <span class="lever-label">Input B</span>
-                        <span class="state-indicator" class:on={inputB}
-                            >{inputB ? "1 (HIGH)" : "0 (LOW)"}</span
-                        >
+                        <div class="lever-mount">
+                            <div
+                                class="lever-stick"
+                                class:stick-flipped={inputB}
+                            ></div>
+                        </div>
+                        <div class="lever-meta">
+                            <span class="lever-label">INPUT B</span>
+                            <span class="state-indicator" class:on={inputB}
+                                >{inputB ? "HIGH [1]" : "LOW [0]"}</span
+                            >
+                        </div>
                     </button>
                     <div class="wire wire-h" class:wire-powered={inputB}></div>
                 </div>
@@ -143,24 +157,19 @@
             <div class="wire wire-out" class:wire-powered={output}></div>
         </div>
 
-        <!-- Output Lamp / Signal -->
+        <!-- Output Redstone Lamp -->
         <div class="output-col">
-            <div class="redstone-lamp" class:lamp-lit={output}>
-                <div class="lamp-inner">
-                    <svg
-                        width="28"
-                        height="28"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                    >
-                        <path
-                            d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7zm-3 18a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"
-                        />
-                    </svg>
+            <div class="redstone-lamp-block" class:lamp-lit={output}>
+                <div class="lamp-grid">
+                    <!-- Minecraft Lamp Pixel Lattice -->
+                    <div class="lamp-cell"></div>
+                    <div class="lamp-cell"></div>
+                    <div class="lamp-cell"></div>
+                    <div class="lamp-cell"></div>
                 </div>
-                <span class="output-title">Redstone Lamp</span>
+                <span class="lamp-name">REDSTONE LAMP</span>
                 <span class="state-indicator" class:on={output}>
-                    {output ? "POWERED (1)" : "UNPOWERED (0)"}
+                    {output ? "POWERED (1)" : "OFF (0)"}
                 </span>
             </div>
         </div>
@@ -168,17 +177,15 @@
 
     <!-- Redstone Lore / Description -->
     <div class="sim-footer">
-        <div class="lore-tag">Minecraft Implementation:</div>
+        <div class="lore-tag">[MINECRAFT IMPLEMENTATION]:</div>
         <p class="lore-text">{gateDescriptions[selectedGate].redstoneDesc}</p>
     </div>
 </div>
 
 <style>
     .logic-sim {
-        background: #111622;
-        border: 1px solid var(--border-subtle);
-        padding: 2rem;
-        border-radius: var(--radius-lg);
+        background: #0f141e;
+        padding: 2.25rem;
     }
 
     .sim-header {
@@ -186,13 +193,14 @@
     }
 
     .sim-title {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         margin-top: 0.65rem;
         color: #ffffff;
+        letter-spacing: 0.03em;
     }
 
     .sim-subtitle {
-        font-size: 0.95rem;
+        font-size: 1rem;
         margin-top: 0.35rem;
     }
 
@@ -202,43 +210,51 @@
         gap: 0.5rem;
         margin-bottom: 1.75rem;
         padding-bottom: 1.25rem;
-        border-bottom: 1px solid var(--border-subtle);
+        border-bottom: 2px solid var(--border-subtle);
     }
 
     .gate-tab {
-        padding: 0.45rem 1rem;
-        border-radius: var(--radius-md);
-        background: #19202f;
-        border: 1px solid var(--border-subtle);
+        padding: 0.5rem 1.1rem;
+        background: #172132;
+        border-top: 2px solid #384a6b;
+        border-left: 2px solid #384a6b;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
         color: var(--text-secondary);
-        font-family: var(--font-mono);
+        font-family: var(--font-display);
         font-weight: 700;
-        font-size: 0.85rem;
+        font-size: 1.05rem;
         cursor: pointer;
-        transition: all 0.15s ease;
+        transition: all 0.1s ease;
+        box-shadow: 2px 2px 0px #000000;
     }
 
     .gate-tab:hover {
-        background: #232d42;
+        background: #223049;
         color: #ffffff;
     }
 
     .gate-tab.active {
-        background: rgba(255, 45, 70, 0.15);
-        border-color: var(--redstone-base);
-        color: #ff5c72;
-        box-shadow: 0 0 12px rgba(255, 45, 70, 0.25);
+        background: #b9152b;
+        border-top-color: #ff4d64;
+        border-left-color: #ff4d64;
+        border-bottom-color: #590914;
+        border-right-color: #590914;
+        color: #ffffff;
+        box-shadow: 3px 3px 0px #000000;
     }
 
     .circuit-board {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 1rem;
-        background: #090c12;
-        padding: 2rem 1.5rem;
-        border-radius: var(--radius-md);
-        border: 1px solid #1a2233;
+        gap: 1.25rem;
+        background: #080b10;
+        padding: 2.25rem 1.75rem;
+        border-top: 3px solid #1c2637;
+        border-left: 3px solid #1c2637;
+        border-bottom: 3px solid #05070a;
+        border-right: 3px solid #05070a;
         position: relative;
         overflow-x: auto;
     }
@@ -246,8 +262,8 @@
     .inputs-col {
         display: flex;
         flex-direction: column;
-        gap: 1.75rem;
-        min-width: 170px;
+        gap: 2rem;
+        min-width: 190px;
     }
 
     .input-node {
@@ -255,67 +271,106 @@
         align-items: center;
     }
 
-    .lever-btn {
+    /* Minecraft Lever Button */
+    .mc-lever-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        background: #252e3e;
+        border-top: 3px solid #43516c;
+        border-left: 3px solid #43516c;
+        border-bottom: 3px solid #10151f;
+        border-right: 3px solid #10151f;
+        padding: 0.65rem 0.9rem;
+        cursor: pointer;
+        box-shadow: 3px 3px 0px #000000;
+        text-align: left;
+        transition: transform 0.08s ease;
+        width: 155px;
+    }
+
+    .mc-lever-btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0px #000000;
+    }
+
+    .mc-lever-btn.active {
+        border-top-color: #ff4d64;
+        border-left-color: #ff4d64;
+        background: #2d242e;
+    }
+
+    .lever-mount {
+        width: 24px;
+        height: 32px;
+        background: #505d74;
+        border-top: 2px solid #7384a2;
+        border-left: 2px solid #7384a2;
+        border-bottom: 2px solid #28303e;
+        border-right: 2px solid #28303e;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .lever-stick {
+        width: 6px;
+        height: 20px;
+        background: #854d0e;
+        border: 1px solid #451a03;
+        transform-origin: bottom center;
+        transform: rotate(-25deg);
+        transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    .lever-stick.stick-flipped {
+        transform: rotate(25deg);
+        background: #a16207;
+    }
+
+    .lever-meta {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-        background: #141b27;
-        border: 1px solid var(--border-subtle);
-        padding: 0.65rem 0.9rem;
-        border-radius: var(--radius-sm);
-        cursor: pointer;
-        transition: all 0.2s ease;
-        width: 130px;
-        text-align: left;
-    }
-
-    .lever-btn:hover {
-        border-color: var(--border-focus);
-        background: #1c2637;
-    }
-
-    .lever-btn.active {
-        border-color: var(--redstone-base);
-        box-shadow: 0 0 14px rgba(255, 45, 70, 0.25);
-        background: #1e1a25;
     }
 
     .lever-label {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
+        font-family: var(--font-display);
+        font-size: 0.95rem;
         font-weight: 700;
-        color: #e2e8f0;
+        color: #ffffff;
+        letter-spacing: 0.03em;
     }
 
     .state-indicator {
         font-family: var(--font-mono);
         font-size: 0.72rem;
         color: var(--text-muted);
-        font-weight: 600;
+        font-weight: 700;
     }
 
     .state-indicator.on {
-        color: #ff5c72;
-        text-shadow: 0 0 8px rgba(255, 45, 70, 0.6);
+        color: #ff4d64;
+        text-shadow: 0 0 8px rgba(255, 37, 63, 0.8);
     }
 
     /* Redstone Wires */
     .wire {
         background-color: var(--redstone-wire-off);
         transition:
-            background-color 0.15s ease,
-            box-shadow 0.15s ease;
+            background-color 0.08s ease,
+            box-shadow 0.08s ease;
     }
 
     .wire-h {
-        height: 4px;
+        height: 6px;
         flex: 1;
         min-width: 40px;
     }
 
     .wire-out {
-        height: 4px;
+        height: 6px;
         flex: 1;
         min-width: 50px;
     }
@@ -323,11 +378,11 @@
     .wire-powered {
         background-color: var(--redstone-base);
         box-shadow:
-            0 0 10px 1px #ff2d46,
-            0 0 20px 2px rgba(255, 45, 70, 0.5);
+            0 0 12px var(--redstone-base),
+            0 0 24px rgba(255, 37, 63, 0.6);
     }
 
-    /* Gate Core Box */
+    /* Gate Core Block */
     .gate-core {
         display: flex;
         align-items: center;
@@ -336,98 +391,119 @@
     }
 
     .gate-badge {
-        background: #1b2333;
-        border: 2px solid var(--border-subtle);
-        border-radius: var(--radius-md);
-        padding: 1.25rem 1.5rem;
+        background: #192233;
+        border-top: 3px solid #3d4f70;
+        border-left: 3px solid #3d4f70;
+        border-bottom: 3px solid #0c121c;
+        border-right: 3px solid #0c121c;
+        padding: 1.25rem 1.65rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-width: 110px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        min-width: 125px;
+        box-shadow: 4px 4px 0px #000000;
     }
 
     .gate-name {
         font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 1.35rem;
+        font-weight: 700;
+        font-size: 1.6rem;
         color: #ffffff;
         letter-spacing: 0.05em;
     }
 
     .gate-formula {
         font-family: var(--font-mono);
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         color: var(--illini-orange);
         margin-top: 0.25rem;
+        font-weight: 700;
     }
 
-    /* Output Redstone Lamp */
+    /* Minecraft Redstone Lamp Block */
     .output-col {
-        min-width: 170px;
+        min-width: 180px;
         display: flex;
         justify-content: flex-end;
     }
 
-    .redstone-lamp {
+    .redstone-lamp-block {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        background: #131924;
-        border: 2px solid var(--border-subtle);
-        border-radius: var(--radius-md);
-        padding: 1rem 1.2rem;
-        width: 145px;
-        transition: all 0.25s ease;
+        background: #2b1c10;
+        border-top: 4px solid #4a321e;
+        border-left: 4px solid #4a321e;
+        border-bottom: 4px solid #130a04;
+        border-right: 4px solid #130a04;
+        padding: 1.25rem;
+        width: 160px;
+        box-shadow: 4px 4px 0px #000000;
+        transition: all 0.15s ease;
     }
 
-    .lamp-inner {
-        color: #475569;
-        margin-bottom: 0.5rem;
-        transition: all 0.25s ease;
+    .lamp-grid {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3px;
+        background: #1c130b;
+        padding: 3px;
+        margin-bottom: 0.75rem;
+        border: 2px solid #130a04;
+    }
+
+    .lamp-cell {
+        background: #3e2817;
+        transition: background 0.1s ease;
     }
 
     .lamp-lit {
-        border-color: #fbbf24;
-        background: radial-gradient(
-            circle,
-            rgba(251, 191, 36, 0.25) 0%,
-            rgba(19, 25, 36, 1) 90%
-        );
-        box-shadow: 0 0 25px rgba(251, 191, 36, 0.5);
+        background: #78350f;
+        border-top-color: #fbbf24;
+        border-left-color: #fbbf24;
+        box-shadow:
+            4px 4px 0px #000000,
+            0 0 35px rgba(251, 191, 36, 0.6);
     }
 
-    .lamp-lit .lamp-inner {
-        color: #fef08a;
-        filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.8));
+    .lamp-lit .lamp-cell {
+        background: #fbbf24;
+        box-shadow: inset 0 0 6px #d97706;
     }
 
-    .output-title {
-        font-size: 0.8rem;
+    .lamp-name {
+        font-family: var(--font-display);
+        font-size: 0.92rem;
         font-weight: 700;
         color: #ffffff;
-        margin-bottom: 0.2rem;
+        letter-spacing: 0.03em;
+        margin-bottom: 0.25rem;
     }
 
     .sim-footer {
         margin-top: 1.25rem;
-        background: rgba(255, 255, 255, 0.02);
-        border: 1px solid var(--border-subtle);
-        border-radius: var(--radius-sm);
-        padding: 0.75rem 1rem;
+        background: rgba(0, 0, 0, 0.4);
+        border-top: 2px solid #253147;
+        border-left: 2px solid #253147;
+        border-bottom: 2px solid #0b0f17;
+        border-right: 2px solid #0b0f17;
+        padding: 0.85rem 1.15rem;
         display: flex;
         align-items: center;
         gap: 0.75rem;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .lore-tag {
-        font-family: var(--font-mono);
+        font-family: var(--font-display);
         font-weight: 700;
         color: var(--illini-orange);
         white-space: nowrap;
+        letter-spacing: 0.04em;
     }
 
     .lore-text {
@@ -438,7 +514,7 @@
     @media (max-width: 680px) {
         .circuit-board {
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.75rem;
         }
 
         .inputs-col,

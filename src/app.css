@@ -1,49 +1,52 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Pixelify+Sans:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
 :root {
-    /* Core Palette */
-    --bg-main: #0a0d14;
+    /* Core Palette - Deepslate & Obsidian tones */
+    --bg-main: #0a0d13;
     --bg-surface: #121824;
-    --bg-surface-elevated: #1a2233;
-    --bg-surface-glass: rgba(18, 24, 36, 0.85);
+    --bg-surface-elevated: #1a2232;
+    --bg-surface-glass: rgba(18, 24, 36, 0.9);
 
-    --border-subtle: #222d42;
-    --border-focus: #374766;
+    /* Minecraft-style block borders */
+    --border-subtle: #253147;
+    --border-focus: #3e5072;
+    --border-light-bevel: #384866;
+    --border-dark-bevel: #0b0f17;
 
     /* Redstone Accents */
-    --redstone-base: #ff2d46;
-    --redstone-glow: rgba(255, 45, 70, 0.45);
-    --redstone-soft: rgba(255, 45, 70, 0.12);
-    --redstone-dim: #9c1727;
-    --redstone-wire-off: #3d1419;
+    --redstone-base: #ff253f;
+    --redstone-glow: rgba(255, 37, 63, 0.5);
+    --redstone-soft: rgba(255, 37, 63, 0.15);
+    --redstone-dim: #8b0f20;
+    --redstone-wire-off: #3b1016;
 
     /* UIUC Accents */
     --illini-orange: #ff5f05;
     --illini-blue: #13294b;
-    --illini-orange-soft: rgba(255, 95, 5, 0.15);
+    --illini-orange-soft: rgba(255, 95, 5, 0.18);
 
     /* Text Hierarchy */
-    --text-primary: #f1f5f9;
+    --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
-    --text-inverse: #0a0d14;
+    --text-inverse: #0a0d13;
 
-    /* Fonts */
+    /* Minecraft blocky display font + clean body sans */
     --font-sans:
         "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Roboto, sans-serif;
-    --font-display: "Outfit", var(--font-sans);
-    --font-mono:
-        "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        monospace;
+    --font-display: "Pixelify Sans", "Courier New", monospace;
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
     /* Layout & Spacing */
     --max-width: 1200px;
     --header-height: 72px;
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 18px;
-    --radius-full: 9999px;
+
+    /* Blocky Minecraft geometry: NO ROUNDED RADIUS */
+    --radius-sm: 0px;
+    --radius-md: 0px;
+    --radius-lg: 0px;
+    --radius-full: 0px;
 
     color-scheme: dark;
 }
@@ -69,19 +72,27 @@ body {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
+    background-color: var(--bg-main);
+    /* Subtle Minecraft voxel grid pattern */
     background-image:
+        linear-gradient(to right, rgba(37, 49, 71, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(37, 49, 71, 0.15) 1px, transparent 1px),
         radial-gradient(
             ellipse 80% 50% at 50% -20%,
-            rgba(255, 45, 70, 0.15),
+            rgba(255, 37, 63, 0.18),
             transparent 70%
         ),
         radial-gradient(
             ellipse 60% 40% at 85% 60%,
-            rgba(19, 41, 75, 0.2),
+            rgba(19, 41, 75, 0.25),
             transparent 60%
         );
+    background-size:
+        32px 32px,
+        32px 32px,
+        auto,
+        auto;
     background-attachment: fixed;
-    background-repeat: no-repeat;
     overflow-x: hidden;
 }
 
@@ -94,9 +105,9 @@ h5,
 h6 {
     font-family: var(--font-display);
     color: var(--text-primary);
-    line-height: 1.2;
+    line-height: 1.25;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
 }
 
 p {
@@ -106,7 +117,7 @@ p {
 a {
     color: inherit;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
 }
 
 code,
@@ -122,138 +133,169 @@ pre {
     padding-inline: 1.5rem;
 }
 
-/* Badges & Pills */
+/* Blocky Badges */
 .badge {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-full);
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     width: fit-content;
+    text-transform: uppercase;
 }
 
 .badge-redstone {
     background-color: var(--redstone-soft);
-    color: #ff7083;
-    border: 1px solid rgba(255, 45, 70, 0.3);
+    color: #ff6e82;
+    border: 2px solid rgba(255, 37, 63, 0.45);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
 }
 
 .badge-illini {
     background-color: var(--illini-orange-soft);
     color: #ff9d66;
-    border: 1px solid rgba(255, 95, 5, 0.35);
+    border: 2px solid rgba(255, 95, 5, 0.45);
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
 }
 
 .badge-pulse-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+    width: 8px;
+    height: 8px;
     background-color: var(--redstone-base);
-    box-shadow: 0 0 10px var(--redstone-base);
-    animation: pulse-glow 2s infinite ease-in-out;
+    box-shadow: 0 0 8px var(--redstone-base);
+    animation: pulse-block 1.5s infinite steps(2, start);
 }
 
-@keyframes pulse-glow {
+@keyframes pulse-block {
     0%,
     100% {
         opacity: 1;
-        transform: scale(1);
     }
     50% {
-        opacity: 0.4;
-        transform: scale(0.85);
+        opacity: 0.3;
     }
 }
 
-/* Buttons */
+/* Minecraft-style Buttons with 3D Beveled Edges */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1.4rem;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    border-radius: var(--radius-md);
-    border: 1px solid transparent;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 0;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    font-family: var(--font-sans);
+    transition:
+        transform 0.08s ease,
+        box-shadow 0.08s ease;
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-top: 3px solid;
+    border-left: 3px solid;
+    border-bottom: 3px solid;
+    border-right: 3px solid;
+    box-shadow: 3px 3px 0px #000000;
+    user-select: none;
 }
 
+.btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px #000000;
+}
+
+/* Primary Redstone Button */
 .btn-primary {
-    background: linear-gradient(135deg, #ff2d46, #d91c34);
+    background: #b9152b;
+    border-top-color: #ff4d64;
+    border-left-color: #ff4d64;
+    border-bottom-color: #590914;
+    border-right-color: #590914;
     color: #ffffff;
-    box-shadow: 0 4px 18px rgba(255, 45, 70, 0.35);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(255, 45, 70, 0.5);
-    filter: brightness(1.08);
+    background: #cb1730;
+    border-top-color: #ff7084;
+    border-left-color: #ff7084;
+    box-shadow: 4px 4px 0px #000000;
 }
 
+/* Secondary Stone / Deepslate Button */
 .btn-secondary {
-    background-color: var(--bg-surface-elevated);
-    border-color: var(--border-subtle);
-    color: var(--text-primary);
+    background: #253147;
+    border-top-color: #43577d;
+    border-left-color: #43577d;
+    border-bottom-color: #111824;
+    border-right-color: #111824;
+    color: #f1f5f9;
 }
 
 .btn-secondary:hover {
-    background-color: #242f46;
-    border-color: var(--border-focus);
-    transform: translateY(-2px);
+    background: #2f3e59;
+    border-top-color: #526b99;
+    border-left-color: #526b99;
+    box-shadow: 4px 4px 0px #000000;
 }
 
+/* Outline Pixel Button */
 .btn-outline {
-    background: transparent;
-    border-color: var(--border-subtle);
-    color: var(--text-primary);
+    background: #141b28;
+    border-top-color: #384968;
+    border-left-color: #384968;
+    border-bottom-color: #0b0f17;
+    border-right-color: #0b0f17;
+    color: #cbd5e1;
 }
 
 .btn-outline:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: var(--text-secondary);
+    background: #1d273a;
+    color: #ffffff;
+    border-top-color: #ff4d64;
+    border-left-color: #ff4d64;
+    box-shadow: 4px 4px 0px #000000;
 }
 
-/* Glass & Card Styles */
+/* Blocky Minecraft Cards */
 .card {
     background-color: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
+    border-top: 3px solid #2d3b55;
+    border-left: 3px solid #2d3b55;
+    border-bottom: 3px solid #0d121c;
+    border-right: 3px solid #0d121c;
+    border-radius: 0;
     padding: 1.75rem;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.6);
     transition:
-        border-color 0.25s ease,
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        border-color 0.15s ease,
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
     position: relative;
-    overflow: hidden;
 }
 
 .card:hover {
-    border-color: rgba(255, 45, 70, 0.35);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+    border-top-color: var(--redstone-base);
+    border-left-color: var(--redstone-base);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.75);
 }
 
-/* Glow gradient accent */
+/* Redstone glow top accent */
 .card-glow-accent {
     position: absolute;
-    top: 0;
+    top: -3px;
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--redstone-base),
-        transparent
-    );
+    background: var(--redstone-base);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.15s ease;
 }
 
 .card:hover .card-glow-accent {
