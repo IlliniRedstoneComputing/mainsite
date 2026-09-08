@@ -1,0 +1,379 @@
+/* =============================================================================
+   UNIVERSAL CSS - AERO / GLASS DESIGN SYSTEM
+   Pure CSS Custom Properties & Reusable Utility Classes
+   ============================================================================= */
+
+:root {
+    /* --- Brand & Palette Colors --- */
+    --color-primary: #0078d4;
+    --color-primary-hover: #1084d8;
+    --color-primary-active: #005a9e;
+    --color-primary-glow: rgba(0, 120, 212, 0.45);
+
+    --color-accent: #00e5ff;
+    --color-accent-hover: #33ebff;
+    --color-accent-active: #00b4d8;
+    --color-accent-glow: rgba(0, 229, 255, 0.45);
+
+    --color-secondary: #718096;
+    --color-secondary-hover: #a0aec0;
+
+    /* Redstone computing accent */
+    --color-redstone: #e63946;
+    --color-redstone-dark: #8e1717;
+    --color-redstone-active: rgb(226, 60, 60);
+
+    /* Illini Brand Colors */
+    --color-illini-orange: #ff6a00;
+    --color-illini-orange-dark: #c54f00;
+    --color-illini-blue: #0078d4;
+    --color-illini-blue-dark: #004d88;
+
+    --color-discord: #5865f2;
+    --color-discord-light: #7289da;
+    --color-discord-dark: #404eed;
+    --color-discord-really-dark: #333a88;
+
+    /* Functional Status Colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-info: #38bdf8;
+
+    /* Canvas & Surface Colors */
+    --color-bg: #090c14;
+    --color-bg-alt: #131b2e;
+    --color-surface: rgba(255, 255, 255, 0.07);
+    --color-surface-hover: rgba(255, 255, 255, 0.12);
+
+    /* Typography Colors */
+    --color-text: #f0f6fc;
+    --color-text-muted: #94a3b8;
+    --color-text-dim: #64748b;
+    --color-text-inverse: #0b111e;
+
+    /* Direct Aliases */
+    --primary: var(--color-primary);
+    --primary-hover: var(--color-primary-hover);
+    --primary-active: var(--color-primary-active);
+    --primary-glow: var(--color-primary-glow);
+
+    --accent: var(--color-accent);
+    --accent-hover: var(--color-accent-hover);
+    --accent-active: var(--color-accent-active);
+    --accent-glow: var(--color-accent-glow);
+
+    --secondary: var(--color-secondary);
+    --secondary-hover: var(--color-secondary-hover);
+
+    /* --- Padding & Spacing Tokens --- */
+    --padding-xs: 0.25rem; /* 4px */
+    --padding-sm: 0.5rem; /* 8px */
+    --padding-md: 1rem; /* 16px */
+    --padding-lg: 1.5rem; /* 24px */
+    --padding-xl: 2.5rem; /* 40px */
+    --padding: var(--padding-md);
+
+    --spacing-xs: var(--padding-xs);
+    --spacing-sm: var(--padding-sm);
+    --spacing-md: var(--padding-md);
+    --spacing-lg: var(--padding-lg);
+    --spacing-xl: var(--padding-xl);
+    --spacing: var(--padding-md);
+
+    /* --- Border Radius Tokens --- */
+    --radius-xs: 4px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 26px;
+    --radius-full: 9999px;
+    --radius: var(--radius-md);
+
+    --border-radius-xs: var(--radius-xs);
+    --border-radius-sm: var(--radius-sm);
+    --border-radius-md: var(--radius-md);
+    --border-radius-lg: var(--radius-lg);
+    --border-radius-xl: var(--radius-xl);
+    --border-radius-full: var(--radius-full);
+    --border-radius: var(--radius-md);
+
+    /* --- Glass & Aero Backgrounds --- */
+    --glass-bg-subtle: rgba(255, 255, 255, 0.04);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-bg-prominent: rgba(255, 255, 255, 0.15);
+    --glass-bg-card: rgba(18, 26, 44, 0.65);
+    --glass-surface: var(--glass-bg);
+
+    /* Aero Light Refraction & Specular Sheen */
+    --glass-gradient: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.16) 0%,
+        rgba(255, 255, 255, 0.04) 50%,
+        rgba(255, 255, 255, 0.08) 100%
+    );
+    --glass-gradient-specular: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.08) 49%,
+        rgba(255, 255, 255, 0.01) 50%,
+        rgba(255, 255, 255, 0.08) 100%
+    );
+    --glass-tint-primary: linear-gradient(
+        135deg,
+        rgba(0, 120, 212, 0.25) 0%,
+        rgba(0, 229, 255, 0.12) 100%
+    );
+    --glass-tint-accent: linear-gradient(
+        135deg,
+        rgba(0, 229, 255, 0.28) 0%,
+        rgba(0, 120, 212, 0.16) 100%
+    );
+    --glass-reflection: var(--glass-gradient);
+    --glass-specular: var(--glass-gradient-specular);
+
+    /* --- Glass & Aero Borders --- */
+    --glass-border-subtle: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --glass-border-highlight: 1px solid rgba(255, 255, 255, 0.35);
+    --glass-border-glow: 1px solid rgba(0, 229, 255, 0.45);
+    --glass-highlight: var(--glass-border-highlight);
+
+    /* --- Glass & Aero Backdrop Blurs --- */
+    --glass-blur-sm: blur(8px) saturate(140%);
+    --glass-blur: blur(16px) saturate(180%);
+    --glass-blur-lg: blur(24px) saturate(200%);
+
+    /* --- Glass & Aero Box Shadows --- */
+    --glass-shadow-sm:
+        0 4px 16px 0 rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+    --glass-shadow:
+        0 8px 32px 0 rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 0 rgba(0, 0, 0, 0.15);
+    --glass-shadow-lg:
+        0 16px 48px 0 rgba(0, 0, 0, 0.4),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 1px 0 rgba(0, 0, 0, 0.2);
+    --glass-shadow-inset:
+        inset 0 2px 4px 0 rgba(0, 0, 0, 0.35),
+        inset 0 -1px 0 0 rgba(255, 255, 255, 0.2);
+
+    --glass-glow-primary:
+        0 0 20px var(--color-primary-glow), 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    --glass-glow-accent:
+        0 0 20px var(--color-accent-glow), 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+    --glass-glow: var(--glass-glow-accent);
+
+    /* --- Transitions --- */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* --- Grid Background Tokens --- */
+    --grid-size: 32px;
+    --grid-line-color: rgba(255, 255, 255, 0.04);
+    --grid-line-color-subtle: rgba(255, 255, 255, 0.04);
+    --grid-line-accent: rgba(0, 229, 255, 0.16);
+
+    /* --- Blocky & Pixel Font Families --- */
+    --font-chakra-petch: "Chakra Petch", system-ui, sans-serif;
+    --font-chakra: var(--font-chakra-petch);
+    --font-pixel: "Pixelify Sans", system-ui, sans-serif;
+    --font-arcade: "Press Start 2P", monospace;
+    --font-silkscreen: "Silkscreen", monospace;
+    --font-terminal: "VT323", monospace;
+    --font-orbitron: "Orbitron", sans-serif;
+
+    /* Headings / Brand Font Alias */
+    --font-brand: var(--font-chakra-petch);
+    --font-blocky: var(--font-chakra-petch);
+    --font-minecraft: var(--font-pixel);
+}
+
+/* =============================================================================
+   REUSABLE UTILITY CLASSES
+   ============================================================================= */
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--glass-shadow);
+    corner-shape: squircle;
+}
+
+.glass-subtle {
+    background: var(--glass-bg-subtle);
+    backdrop-filter: var(--glass-blur-sm);
+    -webkit-backdrop-filter: var(--glass-blur-sm);
+    border: var(--glass-border-subtle);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--glass-shadow-sm);
+    corner-shape: squircle;
+}
+
+.glass-card {
+    background: var(--glass-bg-card);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    padding: var(--padding-lg);
+    corner-shape: squircle;
+}
+
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur-lg);
+    -webkit-backdrop-filter: var(--glass-blur-lg);
+    border: var(--glass-border-highlight);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--glass-shadow-lg);
+    padding: var(--padding-xl);
+    corner-shape: squircle;
+}
+
+.glass-button {
+    background: var(--glass-bg-prominent);
+    backdrop-filter: var(--glass-blur-sm);
+    -webkit-backdrop-filter: var(--glass-blur-sm);
+    border: var(--glass-border-highlight);
+    border-radius: var(--radius-md);
+    box-shadow: var(--glass-shadow-sm);
+    color: var(--color-text);
+    padding: var(--padding-sm) var(--padding-md);
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    position: relative;
+    overflow: hidden;
+    transition:
+        background var(--transition-normal),
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal),
+        transform var(--transition-fast);
+}
+
+.glass-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--glass-gradient-specular);
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0.6;
+    transition: opacity var(--transition-normal);
+}
+
+.glass-button:hover {
+    border-color: var(--glass-border-highlight);
+    box-shadow: var(--glass-shadow), var(--glass-glow-accent);
+    transform: translateY(-1px);
+}
+
+.glass-button:active {
+    transform: translateY(0);
+    box-shadow: var(--glass-shadow-inset);
+}
+
+.glass-input {
+    background: var(--glass-bg-subtle);
+    backdrop-filter: var(--glass-blur-sm);
+    -webkit-backdrop-filter: var(--glass-blur-sm);
+    border: var(--glass-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--glass-shadow-inset);
+    color: var(--color-text);
+    padding: var(--padding-sm) var(--padding-md);
+    outline: none;
+    transition:
+        border-color var(--transition-normal),
+        box-shadow var(--transition-normal);
+}
+
+.glass-input::placeholder {
+    color: var(--color-text-dim);
+}
+
+.glass-input:focus {
+    border-color: var(--color-accent);
+    box-shadow:
+        var(--glass-shadow-inset),
+        0 0 12px var(--color-accent-glow);
+}
+
+.glass-sheen {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-sheen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--glass-gradient-specular);
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0.6;
+}
+
+.glass-glow-primary {
+    box-shadow: var(--glass-glow-primary) !important;
+}
+
+.glass-glow-accent {
+    box-shadow: var(--glass-glow-accent) !important;
+}
+
+/* Grid utilities */
+.grid-bg {
+    background-image:
+        linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+}
+
+.grid-bg-accent {
+    background-image:
+        linear-gradient(to right, var(--grid-line-accent) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line-accent) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+}
+
+/* Font utilities */
+.font-chakra-petch {
+    font-family: var(--font-chakra-petch);
+}
+.font-chakra {
+    font-family: var(--font-chakra);
+}
+.font-pixel {
+    font-family: var(--font-pixel);
+}
+.font-arcade {
+    font-family: var(--font-arcade);
+}
+.font-silkscreen {
+    font-family: var(--font-silkscreen);
+}
+.font-terminal {
+    font-family: var(--font-terminal);
+}
+.font-orbitron {
+    font-family: var(--font-orbitron);
+}
+.font-blocky {
+    font-family: var(--font-blocky);
+}
+.font-brand {
+    font-family: var(--font-brand);
+}
