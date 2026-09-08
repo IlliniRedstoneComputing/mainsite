@@ -1,7 +1,9 @@
 <script lang="ts">
     import { page } from "$app/state";
     import favicon from "$lib/assets/favicon.svg";
-    import DiscordButton from "$lib/components/DiscordButton.svelte";
+    import Button from "$lib/components/Button.svelte";
+    import GridSnakes from "$lib/components/GridSnakes.svelte";
+
     import "../app.css";
 
     let { children } = $props();
@@ -11,6 +13,9 @@
     <link rel="icon" href={favicon} />
 </svelte:head>
 
+<div class="wip-banner">
+    <p>This is a work in progress!</p>
+</div>
 <div class="container">
     <aside>
         <div class="title font-chakra">
@@ -77,7 +82,22 @@
         </nav>
 
         <div class="sidebar-bottom">
-            <DiscordButton />
+            <div class="buttons">
+                <Button
+                    href="https://discord.gg/3XwGbCXmwq"
+                    target="_blank"
+                    rel="noreferrer"
+                    color="var(--color-discord)">Discord</Button
+                >
+                <Button
+                    href="https://www.instagram.com/illini_computing/"
+                    target="_blank"
+                    rel="noreferrer"
+                    color="var(--color-instagram)"
+                >
+                    Instagram
+                </Button>
+            </div>
         </div>
     </aside>
     <main>
@@ -86,6 +106,17 @@
 </div>
 
 <style lang="less">
+    .wip-banner {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-redstone);
+        color: white;
+        text-align: center;
+        z-index: 1000;
+    }
+
     .text-shadow-3d(@x; @y; @color; @depth: 8; @iteration: 1)
         when
         (@iteration <= @depth) {
@@ -245,5 +276,10 @@
         &:hover {
             translate: -0.5rem 0;
         }
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
     }
 </style>
