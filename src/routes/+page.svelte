@@ -52,15 +52,17 @@
         <div class="buttons transition-3">
             <Button
                 href="https://discord.gg/3XwGbCXmwq"
+                color="var(--color-discord)"
                 target="_blank"
-                color="var(--color-discord)">Join Discord</Button
             >
-            <Button href="/about#meetings" color="var(--color-illini-blue)"
-                >Meeting Info</Button
-            >
-            <Button href="/logic" color="var(--color-redstone)"
-                >Learn About Logic</Button
-            >
+                Join Discord
+            </Button>
+            <Button href="/about#meetings" color="var(--color-illini-blue)">
+                Meeting Info
+            </Button>
+            <Button href="/logic" color="var(--color-redstone)">
+                Learn About Logic
+            </Button>
         </div>
 
         <div class="animation-toggle">
@@ -109,16 +111,6 @@
         transform: rotateX(5deg) translateZ(0);
 
         filter: saturate(1.2);
-    }
-
-    .illini {
-        color: var(--color-illini-orange);
-    }
-    .redstone {
-        color: var(--color-redstone);
-    }
-    .computing {
-        color: var(--color-illini-blue);
     }
 
     .blurb {
