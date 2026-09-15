@@ -213,7 +213,6 @@
 
     .page-content {
         position: relative;
-        z-index: 1;
         min-height: 100%;
     }
     aside {
@@ -283,7 +282,6 @@
 
     .category-header {
         position: relative;
-        z-index: 1;
         padding: 0.25rem 0;
         font-weight: 700;
     }

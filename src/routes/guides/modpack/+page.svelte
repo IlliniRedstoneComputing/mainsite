@@ -11,54 +11,59 @@
         make one yourself with the mod list.
     </p>
 
-    <h3>Installing Modrinth</h3>
+    <div class="transition-2">
+        <h3>Installing Modrinth</h3>
 
-    <p>
-        The download page can be found <a
-            href="https://modrinth.com/app"
-            target="_blank"
-        >
-            here
-        </a>
-        . On
-        <span class="bold">Windows</span>
-        , you will download the exe installer and run it. On
-        <span class="bold">Linux</span>
-        , you have to install the Modrinth flatpak package from
-        <span class="bold">flathub</span>
-        . Once downloaded and installed, you will have to sign into your Microsoft
-        account to verify that you own the game.
-    </p>
+        <p>
+            The download page can be found <a
+                href="https://modrinth.com/app"
+                target="_blank"
+            >
+                here
+            </a>
+            . On
+            <span class="bold">Windows</span>
+            , you will download the exe installer and run it. On
+            <span class="bold">Linux</span>
+            , you have to install the Modrinth flatpak package from
+            <span class="bold">flathub</span>
+            . Once downloaded and installed, you will have to sign into your Microsoft
+            account to verify that you own the game.
+        </p>
+    </div>
 
-    <h3>Installing the Modpack</h3>
+    <div class="transition-3">
+        <h3>Installing the Modpack</h3>
 
-    <p>
-        The modpack (.mrpack file) can be downloaded from the IRC <a
-            href="https://github.com/IlliniRedstoneComputing/Modpacks"
-            target="_blank"
-        >
-            github
-        </a>
-        . If possible, you can simply open/double click the file once downloaded
-        and Modrinth will automatically import the pack to be able to play. If that
-        does not work, then you will click the
-        <span class="bold">“Create Instance”</span>
-        button on the home page and then
-        <span class="bold">“Upload a modpack”</span>
-        .
-    </p>
+        <p>
+            The modpack (.mrpack file) can be downloaded from the IRC <a
+                href="https://github.com/IlliniRedstoneComputing/Modpacks"
+                target="_blank"
+            >
+                github
+            </a>
+            . If possible, you can simply open/double click the file once downloaded
+            and Modrinth will automatically import the pack to be able to play. If
+            that does not work, then you will click the
+            <span class="bold">“Create Instance”</span>
+            button on the home page and then
+            <span class="bold">“Upload a modpack”</span>
+            .
+        </p>
 
-    <p>
-        After the modpack has been installed, you should see a redstone block
-        icon on the left sidebar. Clicking it will open the modpack menu, and
-        from there you can press play.
-    </p>
+        <p>
+            After the modpack has been installed, you should see a redstone
+            block icon on the left sidebar. Clicking it will open the modpack
+            menu, and from there you can press play.
+        </p>
 
-    <p>The full mod list will be included at the bottom of the guide.</p>
+        <p>The full mod list will be included at the bottom of the guide.</p>
 
-    <hr />
+        <hr />
 
-    <h2>Modpack List</h2>
+        <h2 class="">Modpack List</h2>
+    </div>
+
     <div class="modlist">
         <div class="mod-category glass-card">
             <h4>Building</h4>

@@ -271,7 +271,6 @@
 <style>
     .grid-snakes {
         position: fixed;
-        z-index: 0;
         top: 0;
         right: 0;
         left: 20rem;

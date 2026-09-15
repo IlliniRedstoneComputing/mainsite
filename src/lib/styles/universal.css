@@ -105,7 +105,7 @@
     --glass-bg-subtle: rgba(255, 255, 255, 0.04);
     --glass-bg: rgba(255, 255, 255, 0.08);
     --glass-bg-prominent: rgba(255, 255, 255, 0.15);
-    --glass-bg-card: rgba(18, 26, 44, 0.65);
+    --glass-bg-card: rgba(18, 26, 44, 0.3);
     --glass-surface: var(--glass-bg);
 
     /* Aero Light Refraction & Specular Sheen */
@@ -142,10 +142,7 @@
     --glass-border-glow: 1px solid rgba(0, 229, 255, 0.45);
     --glass-highlight: var(--glass-border-highlight);
 
-    /* --- Glass & Aero Backdrop Blurs --- */
-    --glass-blur-sm: blur(8px) saturate(140%);
     --glass-blur: blur(16px) saturate(180%);
-    --glass-blur-lg: blur(24px) saturate(200%);
 
     /* --- Glass & Aero Box Shadows --- */
     --glass-shadow-sm:

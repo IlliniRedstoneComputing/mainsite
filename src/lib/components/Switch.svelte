@@ -28,7 +28,6 @@
         position: fixed;
         right: 1rem;
         bottom: 1rem;
-        z-index: 1001;
         display: flex;
         align-items: center;
         gap: 0.65rem;

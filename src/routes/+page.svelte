@@ -57,8 +57,8 @@
             <Button href="/about#meetings" color="var(--color-illini-blue)">
                 Meeting Info
             </Button>
-            <Button href="/logic" color="var(--color-redstone)">
-                Learn About Logic
+            <Button href="/guides" color="var(--color-redstone)">
+                Get Started!
             </Button>
         </div>
 
@@ -84,7 +84,6 @@
 
     .content {
         position: relative;
-        z-index: 1;
         display: flex;
         flex-direction: column;
         align-items: stretch;

@@ -83,6 +83,10 @@ a:hover {
     view-transition-name: transition-3;
 }
 
+.transition-4 {
+    view-transition-name: transition-4;
+}
+
 ::view-transition-group(sidebar),
 ::view-transition-old(sidebar),
 ::view-transition-new(sidebar) {
@@ -94,7 +98,9 @@ a:hover {
 ::view-transition-old(transition-2),
 ::view-transition-new(transition-2),
 ::view-transition-old(transition-3),
-::view-transition-new(transition-3) {
+::view-transition-new(transition-3),
+::view-transition-old(transition-4),
+::view-transition-new(transition-4) {
     animation-duration: 480ms;
     animation-fill-mode: both;
     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
@@ -126,6 +132,16 @@ a:hover {
 ::view-transition-old(transition-3) {
     animation-name: page-exit-to-top;
     animation-delay: 140ms;
+}
+
+::view-transition-new(transition-4) {
+    animation-name: page-enter-from-top;
+    animation-delay: 210ms;
+}
+
+::view-transition-old(transition-4) {
+    animation-name: page-exit-to-top;
+    animation-delay: 210ms;
 }
 
 @keyframes page-enter-from-top {
