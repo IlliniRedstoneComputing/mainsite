@@ -83,6 +83,12 @@ a:hover {
     view-transition-name: transition-3;
 }
 
+::view-transition-group(sidebar),
+::view-transition-old(sidebar),
+::view-transition-new(sidebar) {
+    animation: none;
+}
+
 ::view-transition-old(transition-1),
 ::view-transition-new(transition-1),
 ::view-transition-old(transition-2),

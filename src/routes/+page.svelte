@@ -1,13 +1,10 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
-    import GridSnakes from "$lib/components/GridSnakes.svelte";
     import Switch2 from "$lib/components/Switch2.svelte";
-    import { animationState } from "$lib/state/animation.svelte";
     import TextShadow3D from "$lib/components/TextShadow3D.svelte";
 </script>
 
 <div class="container perspective">
-    <GridSnakes pause={!animationState.enabled} />
     <h1 class="font-chakra irc-title transition-1">
         <TextShadow3D
             color="var(--color-illini-orange)"

@@ -4,6 +4,7 @@
     import favicon from "$lib/assets/favicon.svg";
     import Button from "$lib/components/Button.svelte";
     import GridSnakes from "$lib/components/GridSnakes.svelte";
+    import { animationState } from "$lib/state/animation.svelte";
     import TextShadow3D from "$lib/components/TextShadow3D.svelte";
 
     import "../app.css";
@@ -61,8 +62,18 @@
             >
                 <a href="/about" class="about category-header">About</a>
                 <div class="sub-links">
-                    <a href="/about#faq" class="about-faq"><span>FAQ</span></a>
-                    <a href="/about#meetings" class="about-meetings">
+                    <a
+                        href="/about#faq"
+                        class="about-faq"
+                        class:active={page.url.pathname === "/about" &&
+                            page.url.hash === "#faq"}><span>FAQ</span></a
+                    >
+                    <a
+                        href="/about#meetings"
+                        class="about-meetings"
+                        class:active={page.url.pathname === "/about" &&
+                            page.url.hash === "#meetings"}
+                    >
                         <span>Meetings</span>
                     </a>
                 </div>
@@ -73,13 +84,28 @@
             >
                 <a href="/contact" class="contact category-header">Contact</a>
                 <div class="sub-links">
-                    <a href="/contact#socials" class="contact-socials">
+                    <a
+                        href="/contact#socials"
+                        class="contact-socials"
+                        class:active={page.url.pathname === "/contact" &&
+                            page.url.hash === "#socials"}
+                    >
                         <span>Socials</span>
                     </a>
-                    <a href="/contact#links" class="contact-links">
+                    <a
+                        href="/contact#links"
+                        class="contact-links"
+                        class:active={page.url.pathname === "/contact" &&
+                            page.url.hash === "#links"}
+                    >
                         <span>Links</span>
                     </a>
-                    <a href="/contact#members" class="contact-members">
+                    <a
+                        href="/contact#members"
+                        class="contact-members"
+                        class:active={page.url.pathname === "/contact" &&
+                            page.url.hash === "#members"}
+                    >
                         <span>Members</span>
                     </a>
                 </div>
@@ -92,8 +118,16 @@
                     Projects
                 </a>
                 <div class="sub-links">
-                    <a href="/projects#overture">Overture CPU</a>
-                    <a href="/projects#brainfck">Brainf***</a>
+                    <a
+                        href="/projects#overture"
+                        class:active={page.url.pathname.endsWith("/projects") &&
+                            page.url.hash === "#overture"}>Overture CPU</a
+                    >
+                    <a
+                        href="/projects#brainfck"
+                        class:active={page.url.pathname.endsWith("/projects") &&
+                            page.url.hash === "#brainfck"}>Brainf***</a
+                    >
                 </div>
             </div>
             <div
@@ -104,9 +138,21 @@
                     Guides and Tutorials
                 </a>
                 <div class="sub-links">
-                    <a href="/guides">Getting Started</a>
-                    <a href="/guides/modpack">Modpack and Tooling</a>
-                    <a href="/guides/logic">Into to Logic</a>
+                    <a
+                        href="/guides"
+                        class:active={page.url.pathname === "/guides"}
+                        >Getting Started</a
+                    >
+                    <a
+                        href="/guides/modpack"
+                        class:active={page.url.pathname === "/guides/modpack"}
+                        >Modpack and Tooling</a
+                    >
+                    <a
+                        href="/guides/logic"
+                        class:active={page.url.pathname == "/guides/logic"}
+                        >Into to Logic</a
+                    >
                 </div>
             </div>
         </nav>
@@ -133,7 +179,10 @@
         </div>
     </aside>
     <main>
-        {@render children()}
+        <GridSnakes pause={!animationState.enabled} />
+        <div class="page-content">
+            {@render children()}
+        </div>
     </main>
 </div>
 
@@ -161,8 +210,15 @@
         margin-left: 20rem;
         overflow-y: auto;
     }
+
+    .page-content {
+        position: relative;
+        z-index: 1;
+        min-height: 100%;
+    }
     aside {
         position: fixed;
+        view-transition-name: sidebar;
         inset: 0 auto 0 0;
         width: 20rem;
         height: 100vh;
@@ -255,6 +311,8 @@
         position: relative;
         padding: 0.25rem 0;
 
+        transition: padding-left 0.1s ease-in-out;
+
         span {
             display: inline-block;
             transition: translate 0.1s ease-in-out;
@@ -262,6 +320,16 @@
 
         &:hover span {
             translate: 0.25rem 0;
+        }
+
+        &.active {
+            padding-left: 1rem;
+        }
+        &.active::after {
+            // make a small arrow icon pointing to the right
+            content: ">";
+            position: absolute;
+            left: 0;
         }
     }
 

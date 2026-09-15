@@ -270,11 +270,13 @@
 
 <style>
     .grid-snakes {
-        position: absolute;
+        position: fixed;
         z-index: 0;
-        inset: 0;
-        width: 100%;
-        height: 100%;
+        top: 0;
+        right: 0;
+        left: 20rem;
+        width: calc(100% - 20rem);
+        height: 100vh;
         filter: blur(3px) brightness(0.8);
         pointer-events: none;
     }

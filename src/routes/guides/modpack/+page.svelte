@@ -1,7 +1,7 @@
 <div class="content">
     <h1>Illini Redstone Computing Modpack and Tool Guide</h1>
 
-    <h3>Minecraft Launcher</h3>
+    <h2>Minecraft Launcher</h2>
 
     <p>
         We use and recommend the <span class="bold">Modrinth launcher</span>
@@ -11,7 +11,7 @@
         make one yourself with the mod list.
     </p>
 
-    <h4>Installing Modrinth</h4>
+    <h3>Installing Modrinth</h3>
 
     <p>
         The download page can be found <a
@@ -30,7 +30,7 @@
         account to verify that you own the game.
     </p>
 
-    <h4>Installing the Modpack</h4>
+    <h3>Installing the Modpack</h3>
 
     <p>
         The modpack (.mrpack file) can be downloaded from the IRC <a
@@ -55,6 +55,146 @@
     </p>
 
     <p>The full mod list will be included at the bottom of the guide.</p>
+
+    <hr />
+
+    <h2>Modpack List</h2>
+    <div class="modlist">
+        <div class="mod-category glass-card">
+            <h4>Building</h4>
+
+            <ul>
+                <li>
+                    Axiom <span class="mod-description"
+                        >(main building mod, supercedes worldedit)</span
+                    >
+                </li>
+                <li>
+                    Litematica <span class="mod-description"
+                        >(schematic support)</span
+                    >
+                </li>
+                <li>
+                    Worldedit <span class="mod-description"
+                        >(can still be useful sometimes)</span
+                    >
+                </li>
+                <li>
+                    Lite2Edit <span class="mod-description"
+                        >(litematica schematic support for worldedit)</span
+                    >
+                </li>
+                <li>
+                    Archive Downloader <span class="mod-description"
+                        >(Mattbatwings redstone schematic library)</span
+                    >
+                </li>
+            </ul>
+        </div>
+        <div class="mod-category glass-card">
+            <h4>Redstone and Debug</h4>
+
+            <ul>
+                <li>
+                    Alternate Current <span class="mod-description"
+                        >(speeds up redstone)</span
+                    >
+                </li>
+                <li>
+                    G4meSpeed <span class="mod-description"
+                        >(better support for higher tick speeds)</span
+                    >
+                </li>
+                <li>
+                    Carpet <span class="mod-description"
+                        >(adds a lot of game options and utilities)</span
+                    >
+                </li>
+                <li>
+                    ChunkDebug <span class="mod-description"
+                        >(shows loaded chunks as a map)</span
+                    >
+                </li>
+                <li>
+                    MattPack <span class="mod-description">(resource pack)</span
+                    >
+                </li>
+                <li>
+                    Ping Pong Pack <span class="mod-description"
+                        >(resource pack)</span
+                    >
+                </li>
+                <li>
+                    Wueffis RegReader for Computational Redstone <span
+                        class="mod-description"
+                        >(read lamps as binary numbers)</span
+                    >
+                </li>
+                <li>
+                    Redstone Tweaks <span class="mod-description"
+                        >(redstone information tools)</span
+                    >
+                </li>
+            </ul>
+        </div>
+        <div class="mod-category glass-card">
+            <h4>Game Utility</h4>
+
+            <ul>
+                <li>
+                    Controlling <span class="mod-description"
+                        >(adds searchbar to keybinds)</span
+                    >
+                </li>
+                <li>
+                    Essential Mod <span class="mod-description"
+                        >(peer to peer multiplayer)</span
+                    >
+                </li>
+                <li>
+                    ModMenu <span class="mod-description"
+                        >(adds an in-game mod list)</span
+                    >
+                </li>
+                <li>
+                    Command Keys <span class="mod-description"
+                        >(run command when a key is pressed)</span
+                    >
+                </li>
+            </ul>
+        </div>
+        <div class="mod-category glass-card">
+            <h4>Performance and Visual</h4>
+
+            <ul>
+                <li>Sodium</li>
+                <li>Sodium Extra</li>
+                <li>Reese's Sodium Options</li>
+                <li>Iris Shaders</li>
+                <li>
+                    Complementary Shaders Unbound <span class="mod-description"
+                        >(shaderpack)</span
+                    >
+                </li>
+                <li>Ferrite Core</li>
+                <li>Immediately Fast</li>
+                <li>Lithium</li>
+            </ul>
+        </div>
+        <div class="mod-category glass-card">
+            <h4>Library and Core</h4>
+
+            <ul>
+                <li>Fabric API</li>
+                <li>Fabric Language Kotlin</li>
+                <li>Searchables</li>
+                <li>Text Placeholder API</li>
+                <li>YetAnotherConfigLib</li>
+                <li>MaLiLib</li>
+                <li>MaLiLib API</li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -71,6 +211,11 @@
         font-weight: bold;
     }
 
+    .mod-description {
+        color: var(--color-text-muted);
+        padding-left: 0.5rem;
+    }
+
     h1 {
         text-align: center;
         margin: 2rem;
@@ -78,6 +223,30 @@
 
     p {
         margin: 2rem;
-        color: var(--color-text-muted);
+        color: var(--color-text-slightly-muted);
+    }
+
+    hr {
+        margin-block: 5rem;
+    }
+
+    ul {
+        margin: 1rem;
+        padding-left: 1rem;
+    }
+
+    .modlist {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 1rem;
+
+        padding-block: 3rem;
+    }
+
+    .mod-category {
+        h4 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
     }
 </style>
