@@ -207,7 +207,7 @@
         padding-inline: 2rem;
         /* margin-top: 5rem; */
 
-        max-width: 60rem;
+        max-width: 80rem;
 
         margin-inline: auto;
 
@@ -246,7 +246,7 @@
 
     .modlist {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
         gap: 1rem;
 
         padding-block: 3rem;
