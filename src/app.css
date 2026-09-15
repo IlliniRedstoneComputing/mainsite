@@ -70,6 +70,80 @@ a:hover {
     text-shadow: 0 0 8px var(--color-accent-glow);
 }
 
+/* Give each staged element its own transition snapshot. */
+.transition-1 {
+    view-transition-name: transition-1;
+}
+
+.transition-2 {
+    view-transition-name: transition-2;
+}
+
+.transition-3 {
+    view-transition-name: transition-3;
+}
+
+::view-transition-old(transition-1),
+::view-transition-new(transition-1),
+::view-transition-old(transition-2),
+::view-transition-new(transition-2),
+::view-transition-old(transition-3),
+::view-transition-new(transition-3) {
+    animation-duration: 480ms;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-new(transition-1) {
+    animation-name: page-enter-from-top;
+}
+
+::view-transition-old(transition-1) {
+    animation-name: page-exit-to-top;
+}
+
+::view-transition-new(transition-2) {
+    animation-name: page-enter-from-top;
+    animation-delay: 70ms;
+}
+
+::view-transition-old(transition-2) {
+    animation-name: page-exit-to-top;
+    animation-delay: 70ms;
+}
+
+::view-transition-new(transition-3) {
+    animation-name: page-enter-from-top;
+    animation-delay: 140ms;
+}
+
+::view-transition-old(transition-3) {
+    animation-name: page-exit-to-top;
+    animation-delay: 140ms;
+}
+
+@keyframes page-enter-from-top {
+    from {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes page-exit-to-top {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-2rem);
+    }
+}
+
 /* Global scrollbar styling to match Aero Glass look */
 ::-webkit-scrollbar {
     width: 8px;

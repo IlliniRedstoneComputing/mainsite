@@ -1,12 +1,27 @@
 <script lang="ts">
+    import { onNavigate } from "$app/navigation";
     import { page } from "$app/state";
     import favicon from "$lib/assets/favicon.svg";
     import Button from "$lib/components/Button.svelte";
     import GridSnakes from "$lib/components/GridSnakes.svelte";
+    import TextShadow3D from "$lib/components/TextShadow3D.svelte";
 
     import "../app.css";
 
     let { children } = $props();
+
+    onNavigate(navigation => {
+        if (typeof document === "undefined" || !document.startViewTransition) {
+            return;
+        }
+
+        return new Promise<void>(resolve => {
+            document.startViewTransition(async () => {
+                resolve();
+                await navigation.complete;
+            });
+        });
+    });
 </script>
 
 <svelte:head>
@@ -20,8 +35,20 @@
     <aside>
         <div class="title font-chakra">
             <h1>
-                <span class="illini">I</span> <span class="redstone">R</span>
-                <span class="computing">C</span>
+                <TextShadow3D
+                    color="var(--color-illini-orange-dark)"
+                    textColor="var(--color-illini-orange)"
+                    x="0.03125rem"
+                >I</TextShadow3D>
+                <TextShadow3D
+                    color="var(--color-redstone-dark)"
+                    textColor="var(--color-redstone)"
+                >R</TextShadow3D>
+                <TextShadow3D
+                    color="var(--color-illini-blue-dark)"
+                    textColor="var(--color-illini-blue)"
+                    x="-0.03125rem"
+                >C</TextShadow3D>
             </h1>
         </div>
         <nav class="links" aria-label="Primary navigation">
@@ -117,14 +144,6 @@
         z-index: 1000;
     }
 
-    .text-shadow-3d(@x; @y; @color; @depth: 8; @iteration: 1)
-        when
-        (@iteration <= @depth) {
-        text-shadow+: (@x * @iteration) calc(@y * @iteration) 0
-            color-mix(in srgb, @color, black calc(@iteration * 10%));
-        .text-shadow-3d(@x; @y; @color; @depth; (@iteration + 1));
-    }
-
     .container {
         display: flex;
         flex-direction: row;
@@ -165,28 +184,6 @@
         justify-content: center;
         gap: 0.5rem;
 
-        --shadow-length: 0.1rem;
-    }
-
-    .illini {
-        color: var(--color-illini-orange);
-        .text-shadow-3d(
-            0.03125rem;
-            var(--shadow-length);
-            var(--color-illini-orange-dark)
-        );
-    }
-    .redstone {
-        color: var(--color-redstone);
-        .text-shadow-3d(0; var(--shadow-length); var(--color-redstone-dark));
-    }
-    .computing {
-        color: var(--color-illini-blue);
-        .text-shadow-3d(
-            -0.03125rem;
-            var(--shadow-length);
-            var(--color-illini-blue-dark)
-        );
     }
 
     .sidebar-bottom {

@@ -3,18 +3,43 @@
     import GridSnakes from "$lib/components/GridSnakes.svelte";
     import Switch2 from "$lib/components/Switch2.svelte";
     import { animationState } from "$lib/state/animation.svelte";
+    import TextShadow3D from "$lib/components/TextShadow3D.svelte";
 </script>
 
 <div class="container perspective">
     <GridSnakes pause={!animationState.enabled} />
-    <h1 class="font-chakra irc-title">
-        <span class="illini">Illini</span>
-        <span class="redstone">Redstone</span>
-        <span class="computing">Computing</span>
+    <h1 class="font-chakra irc-title transition-1">
+        <TextShadow3D
+            color="var(--color-illini-orange)"
+            textColor="var(--color-illini-orange)"
+            x="0.05rem"
+            y="0.1rem"
+            depth={8}
+        >
+            Illini
+        </TextShadow3D>
+        <TextShadow3D
+            color="var(--color-redstone)"
+            textColor="var(--color-redstone)"
+            x="0rem"
+            y="0.1rem"
+            depth={8}
+        >
+            Redstone
+        </TextShadow3D>
+        <TextShadow3D
+            color="var(--color-illini-blue)"
+            textColor="var(--color-illini-blue)"
+            x="-0.05rem"
+            y="0.1rem"
+            depth={8}
+        >
+            Computing
+        </TextShadow3D>
     </h1>
 
     <div class="content">
-        <div class="blurb">
+        <div class="blurb transition-2">
             <h3>Welcome to the Illini Redstone Computing community!</h3>
             <p>
                 SHORT BLURB:Lorem ipsum dolor sit amet consectetur adipisicing
@@ -24,9 +49,10 @@
             </p>
         </div>
 
-        <div class="buttons">
+        <div class="buttons transition-3">
             <Button
                 href="https://discord.gg/3XwGbCXmwq"
+                target="_blank"
                 color="var(--color-discord)">Join Discord</Button
             >
             <Button href="/about#meetings" color="var(--color-illini-blue)"

@@ -47,7 +47,9 @@
 
         if (!context) return;
 
-        const random = createRandom(20260907);
+        const random = createRandom(
+            20260907 + Math.floor(Math.random() * 1000000),
+        );
         let gridSize = 32;
         let width = 0;
         let height = 0;
