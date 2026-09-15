@@ -2,6 +2,7 @@
     import { onNavigate } from "$app/navigation";
     import { page } from "$app/state";
     import favicon from "$lib/assets/favicon.svg";
+    import hamburger from "$lib/assets/hamburger.svg";
     import Button from "$lib/components/Button.svelte";
     import GridSnakes from "$lib/components/GridSnakes.svelte";
     import { animationState } from "$lib/state/animation.svelte";
@@ -10,8 +11,10 @@
     import "../app.css";
 
     let { children } = $props();
+    let menuOpen = $state(false);
 
     onNavigate(navigation => {
+        menuOpen = false;
         if (typeof document === "undefined" || !document.startViewTransition) {
             return;
         }
@@ -29,11 +32,28 @@
     <link rel="icon" href={favicon} />
 </svelte:head>
 
+<button
+    class="menu-toggle"
+    type="button"
+    aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+    aria-expanded={menuOpen}
+    onclick={() => (menuOpen = !menuOpen)}
+>
+    <img src={hamburger} alt="" />
+</button>
+{#if menuOpen}
+    <button
+        class="menu-backdrop"
+        type="button"
+        aria-label="Close navigation menu"
+        onclick={() => (menuOpen = false)}
+    ></button>
+{/if}
 <div class="wip-banner">
     <p>This is a work in progress!</p>
 </div>
 <div class="container">
-    <aside>
+    <aside class:open={menuOpen}>
         <div class="title font-chakra">
             <h1>
                 <TextShadow3D
@@ -198,6 +218,11 @@
         z-index: 1000;
     }
 
+    .menu-toggle,
+    .menu-backdrop {
+        display: none;
+    }
+
     .container {
         display: flex;
         flex-direction: row;
@@ -348,5 +373,58 @@
     .buttons {
         display: grid;
         grid-template-columns: 2fr 1fr;
+    }
+
+    @media (max-width: 48rem) {
+        .menu-toggle {
+            position: fixed;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 1002;
+            display: grid;
+            width: 2.75rem;
+            height: 2.75rem;
+            place-items: center;
+            padding: 0.65rem;
+            border: var(--glass-border);
+            border-radius: var(--radius-sm);
+            background: var(--glass-bg-card);
+            box-shadow: var(--glass-shadow-sm);
+            cursor: pointer;
+        }
+
+        .menu-toggle img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .menu-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            display: block;
+            border: 0;
+            background: rgba(0, 0, 0, 0.45);
+            cursor: pointer;
+        }
+
+        aside {
+            inset: 0 0 auto;
+            z-index: 1001;
+            width: 100%;
+            max-height: 100vh;
+            overflow-y: auto;
+            transform: translateY(-100%);
+            transition: transform var(--transition-normal);
+        }
+
+        aside.open {
+            transform: translateY(0);
+        }
+
+        main {
+            width: 100%;
+            margin-left: 0;
+        }
     }
 </style>

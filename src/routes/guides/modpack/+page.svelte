@@ -204,8 +204,12 @@
 
 <style>
     .content {
-        padding-inline: 10rem;
-        margin-top: 5rem;
+        padding-inline: 2rem;
+        /* margin-top: 5rem; */
+
+        max-width: 60rem;
+
+        margin-inline: auto;
 
         /* display: flex;
         flex-direction: column;
