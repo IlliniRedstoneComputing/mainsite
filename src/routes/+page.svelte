@@ -27,14 +27,16 @@
         <div class="buttons">
             <Button
                 href="https://discord.gg/3XwGbCXmwq"
-                color="var(--color-discord)">Join Discord</Button
+                color="var(--color-discord)"
             >
-            <Button href="/about#meetings" color="var(--color-illini-blue)"
-                >Meeting Info</Button
-            >
-            <Button href="/logic" color="var(--color-redstone)"
-                >Learn About Logic</Button
-            >
+                Join Discord
+            </Button>
+            <Button href="/about#meetings" color="var(--color-illini-blue)">
+                Meeting Info
+            </Button>
+            <Button href="/logic" color="var(--color-redstone)">
+                Learn About Logic
+            </Button>
         </div>
 
         <div class="animation-toggle">

@@ -20,7 +20,8 @@
     <aside>
         <div class="title font-chakra">
             <h1>
-                <span class="illini">I</span> <span class="redstone">R</span>
+                <span class="illini">I</span>
+                <span class="redstone">R</span>
                 <span class="computing">C</span>
             </h1>
         </div>
@@ -46,23 +47,24 @@
             >
                 <a href="/contact" class="contact category-header">Contact</a>
                 <div class="sub-links">
-                    <a href="/contact#socials" class="contact-socials"
-                        ><span>Socials</span></a
-                    >
-                    <a href="/contact#links" class="contact-links"
-                        ><span>Links</span></a
-                    >
-                    <a href="/contact#members" class="contact-members"
-                        ><span>Members</span></a
-                    >
+                    <a href="/contact#socials" class="contact-socials">
+                        <span>Socials</span>
+                    </a>
+                    <a href="/contact#links" class="contact-links">
+                        <span>Links</span>
+                    </a>
+                    <a href="/contact#members" class="contact-members">
+                        <span>Members</span>
+                    </a>
                 </div>
             </div>
             <div
                 class="link-category"
                 class:active={page.url.pathname.startsWith("/projects")}
             >
-                <a href="/projects" class="projects category-header">Projects</a
-                >
+                <a href="/projects" class="projects category-header">
+                    Projects
+                </a>
                 <div class="sub-links">
                     <a href="/projects#overture">Overture CPU</a>
                     <a href="/projects#brainfck">Brainf***</a>
@@ -70,13 +72,15 @@
             </div>
             <div
                 class="link-category"
-                class:active={page.url.pathname.startsWith("/logic")}
+                class:active={page.url.pathname.startsWith("/guides")}
             >
-                <a href="/logic" class="logic category-header">What is Logic?</a
-                >
+                <a href="/logic" class="logic category-header">
+                    Guides and Tutorials
+                </a>
                 <div class="sub-links">
-                    <a href="/logic#gates">Gates</a>
-                    <a href="/logic#circuits">Circuits</a>
+                    <a href="/guides">Getting Started</a>
+                    <a href="/guides/modpack">Modpack and Tooling</a>
+                    <a href="/guides/logic">Into to Logic</a>
                 </div>
             </div>
         </nav>
@@ -87,8 +91,10 @@
                     href="https://discord.gg/3XwGbCXmwq"
                     target="_blank"
                     rel="noreferrer"
-                    color="var(--color-discord)">Discord</Button
+                    color="var(--color-discord)"
                 >
+                    Discord
+                </Button>
                 <Button
                     href="https://www.instagram.com/illini_computing/"
                     target="_blank"
