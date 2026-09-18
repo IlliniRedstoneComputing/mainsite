@@ -180,7 +180,7 @@
         <div class="sidebar-bottom">
             <div class="buttons">
                 <Button
-                    href="https://discord.gg/3XwGbCXmwq"
+                    href="/discord"
                     target="_blank"
                     rel="noreferrer"
                     color="var(--color-discord)"
@@ -394,6 +394,19 @@
     }
 
     @media (width < 64rem) {
+        .container,
+        main {
+            height: 100dvh;
+        }
+
+        .page-content {
+            flex: 0 0 auto;
+        }
+
+        // main {
+        //     padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+        // }
+
         .menu-toggle {
             position: fixed;
             top: 0.75rem;
@@ -430,7 +443,7 @@
             inset: 0 0 auto;
             z-index: 1001;
             width: 100%;
-            max-height: 100vh;
+            max-height: 100dvh;
             overflow-y: auto;
             transform: translateY(-100%);
             transition: transform var(--transition-normal);

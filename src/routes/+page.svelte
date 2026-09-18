@@ -47,11 +47,7 @@
 </div>
 
 <div class="buttons transition-3">
-    <Button
-        href="https://discord.gg/3XwGbCXmwq"
-        color="var(--color-discord)"
-        target="_blank"
-    >
+    <Button href="/discord" color="var(--color-discord)" target="_blank">
         Join Discord
     </Button>
     <Button href="/about#meetings" color="var(--color-illini-blue)">
