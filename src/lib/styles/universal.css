@@ -203,7 +203,6 @@
 
 .glass {
     background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: var(--glass-border);
     box-shadow: var(--glass-shadow);
@@ -211,7 +210,6 @@
 
 .glass-subtle {
     background: var(--glass-bg-subtle);
-    backdrop-filter: var(--glass-blur-sm);
     -webkit-backdrop-filter: var(--glass-blur-sm);
     border: var(--glass-border-subtle);
     box-shadow: var(--glass-shadow-sm);
@@ -219,11 +217,19 @@
 
 .glass-card {
     background: var(--glass-bg-card);
-    backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
     border: var(--glass-border);
     box-shadow: var(--glass-shadow);
     padding: var(--padding-lg);
+}
+
+/* Required because for some unknown reason, the backdrop-filter declaration is deleted by the vite optimizer unless it is in a seperate block */
+@supports (backdrop-filter: blur(0)) {
+    .glass,
+    .glass-subtle,
+    .glass-card {
+        backdrop-filter: var(--glass-blur);
+    }
 }
 
 /* Grid utilities */
