@@ -179,7 +179,7 @@
             context.lineCap = "square";
             context.lineJoin = "miter";
             context.strokeStyle = getComputedStyle(document.documentElement)
-                .getPropertyValue("--color-accent")
+                .getPropertyValue("--color-redstone")
                 .trim();
 
             for (const snake of snakes) {
@@ -273,7 +273,7 @@
         position: fixed;
         top: 0;
         right: 0;
-        left: 20rem;
+        /* left: 20rem; */
         width: calc(100% - 20rem);
         height: 100vh;
         filter: blur(3px) brightness(0.8);

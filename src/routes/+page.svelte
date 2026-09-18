@@ -4,7 +4,7 @@
     import TextShadow3D from "$lib/components/TextShadow3D.svelte";
 </script>
 
-<div class="container perspective">
+<div class="title-container">
     <h1 class="font-chakra irc-title transition-1">
         <TextShadow3D
             color="var(--color-illini-orange)"
@@ -34,79 +34,66 @@
             Computing
         </TextShadow3D>
     </h1>
+</div>
 
-    <div class="content">
-        <div class="blurb transition-2">
-            <h3>Welcome to the Illini Redstone Computing community!</h3>
-            <p>
-                SHORT BLURB:Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Dolor in maiores, adipisci quas molestiae ratione
-                voluptatum? Eius quo est nihil quae. Enim quasi repellendus
-                quidem dicta possimus, laboriosam quo totam!
-            </p>
-        </div>
+<div class="blurb transition-2">
+    <h3>Welcome to the Illini Redstone Computing community!</h3>
+    <p>
+        SHORT BLURB:Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Dolor in maiores, adipisci quas molestiae ratione voluptatum? Eius quo
+        est nihil quae. Enim quasi repellendus quidem dicta possimus, laboriosam
+        quo totam!
+    </p>
+</div>
 
-        <div class="buttons transition-3">
-            <Button
-                href="https://discord.gg/3XwGbCXmwq"
-                color="var(--color-discord)"
-                target="_blank"
-            >
-                Join Discord
-            </Button>
-            <Button href="/about#meetings" color="var(--color-illini-blue)">
-                Meeting Info
-            </Button>
-            <Button href="/guides" color="var(--color-redstone)">
-                Get Started!
-            </Button>
-        </div>
+<div class="buttons transition-3">
+    <Button
+        href="https://discord.gg/3XwGbCXmwq"
+        color="var(--color-discord)"
+        target="_blank"
+    >
+        Join Discord
+    </Button>
+    <Button href="/about#meetings" color="var(--color-illini-blue)">
+        Meeting Info
+    </Button>
+    <Button href="/guides" color="var(--color-redstone)">Get Started!</Button>
+</div>
 
-        <div class="animation-toggle">
-            <Switch2 />
-        </div>
-    </div>
+<div class="animation-toggle">
+    <Switch2 />
 </div>
 
 <style>
-    .perspective {
-        perspective: 1000px;
-    }
-
-    .container {
-        position: relative;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+    .title-container {
         width: 100%;
-        height: 100%;
-    }
-
-    .content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-
-        width: 60rem;
-        height: 100vh;
+        container: title / inline-size;
     }
 
     .irc-title {
-        font-size: 5rem;
+        font-size: clamp(2.5rem, calc(6cqw), 9rem);
         font-weight: 700;
         text-align: center;
         text-transform: uppercase;
 
         display: flex;
-        width: 95%;
+        width: 100%;
         justify-content: center;
         gap: 3rem;
 
         margin-top: 10rem;
-        transform: rotateX(5deg) translateZ(0);
 
         filter: saturate(1.2);
+
+        @container title (width < 48rem) {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            font-size: clamp(3rem, calc(10cqw), 7rem);
+
+            margin-top: 5rem;
+        }
     }
 
     .blurb {
@@ -128,6 +115,13 @@
         margin: 2rem;
         display: flex;
         gap: 2rem;
+
+        @container page (width < 48rem) {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-inline: 0;
+        }
     }
 
     .animation-toggle {

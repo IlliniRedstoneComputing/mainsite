@@ -139,14 +139,14 @@
                 </a>
                 <div class="sub-links">
                     <a
-                        href="/projects#overture"
-                        class:active={page.url.pathname.endsWith("/projects") &&
-                            page.url.hash === "#overture"}>Overture CPU</a
+                        href="/projects/overture"
+                        class:active={page.url.pathname ===
+                            "/projects/overture"}>Overture CPU</a
                     >
                     <a
-                        href="/projects#brainfck"
-                        class:active={page.url.pathname.endsWith("/projects") &&
-                            page.url.hash === "#brainfck"}>Brainf***</a
+                        href="/projects/brainfck"
+                        class:active={page.url.pathname ===
+                            "/projects/brainfck"}>Brainf***</a
                     >
                 </div>
             </div>
@@ -234,11 +234,27 @@
         height: 100vh;
         margin-left: 20rem;
         overflow-y: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .page-content {
         position: relative;
         min-height: 100%;
+
+        padding-inline: 2rem;
+        /* margin-top: 5rem; */
+
+        width: min(100%, 80rem);
+
+        /* display: flex;
+        flex-direction: column;
+
+        gap: 5rem; */
+
+        container: page / inline-size;
     }
     aside {
         position: fixed;
@@ -282,6 +298,8 @@
         gap: 1rem;
         padding: 1.5rem 1.5rem 0;
         font-size: 1.1rem;
+
+        overflow-y: auto;
     }
 
     .link-category {
@@ -372,10 +390,10 @@
 
     .buttons {
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 
-    @media (max-width: 48rem) {
+    @media (width < 64rem) {
         .menu-toggle {
             position: fixed;
             top: 0.75rem;
