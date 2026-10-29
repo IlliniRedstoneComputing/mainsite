@@ -84,6 +84,23 @@
     --spacing-xl: var(--padding-xl);
     --spacing: var(--padding-md);
 
+    /* --- Shared Page Layout & Typography --- */
+    --page-space: 2rem;
+    --page-section-space: 5rem;
+    --page-title-margin: 5rem;
+    --page-title-margin-top: 8rem;
+    --page-title-margin-top-mobile: 5rem;
+    --page-title-gap: 3rem;
+    --page-content-gap: 1.5rem;
+    --page-compact-gap: 1rem;
+    --page-title-size: clamp(2.5rem, calc(6cqw), 9rem);
+    --page-title-size-mobile: clamp(3rem, calc(10cqw), 7rem);
+    --page-heading-size: 1.7rem;
+    --page-body-size: 1.1rem;
+    --card-title-size: 1.35rem;
+    --card-body-size: 1rem;
+    --page-grid-min-width: 400px;
+
     /* --- Border Radius Tokens --- */
     --radius-xs: 4px;
     --radius-sm: 8px;
@@ -200,6 +217,40 @@
 /* =============================================================================
    REUSABLE UTILITY CLASSES
    ============================================================================= */
+
+.page-title {
+    font-size: var(--page-title-size);
+    text-align: center;
+    margin: var(--page-space);
+}
+
+.page-heading {
+    font-size: var(--page-heading-size);
+    font-weight: 600;
+    margin: var(--page-space);
+}
+
+.page-copy {
+    color: var(--color-text-slightly-muted);
+    font-size: var(--page-body-size);
+    margin: var(--page-space);
+}
+
+.card-title {
+    color: var(--color-text);
+    font-size: var(--card-title-size);
+    margin-bottom: var(--page-compact-gap);
+}
+
+.card-copy {
+    color: var(--color-text-slightly-muted);
+    font-size: var(--card-body-size);
+    margin: var(--page-space);
+}
+
+.bold {
+    font-weight: bold;
+}
 
 .glass {
     background: var(--glass-bg);

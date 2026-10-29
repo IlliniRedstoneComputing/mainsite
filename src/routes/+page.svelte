@@ -33,40 +33,48 @@
     </h1>
 </div>
 
-<div class="blurb transition-2">
-    <h3>Welcome to the Illini Redstone Computing community!</h3>
-    <p>
+<div class="blurb">
+    <h3 class="page-heading">
+        Welcome to the Illini Redstone Computing community!
+    </h3>
+    <p class="page-copy">
         We are a group of students at the University of Illinois
         Urbana-Champaign who are passionate about Minecraft and redstone. We
         create complex redstone circuitry to have fun and learn about computer
         architecture and logic design. We also build mods and tooling to enhance
         our building experience.
     </p>
-    <p>
+    <p class="page-copy">
         While we are an ECE redstone organization, we welcome anyone who is
         interested in redstone and Minecraft to join us. We have a discord
         server where we discuss redstone, share our builds, and help each other
         with our projects. We also have regular meetings where we brainstorm,
         work on our builds, and learn with each other.
     </p>
-    <p>A few details about our organization:</p>
+    <p class="page-copy">A few details about our organization:</p>
 
     <div class="organization-details">
         <div class="glass-card">
-            <h4>Who we are</h4>
-            <p>Students building, learning, and sharing together.</p>
+            <h4 class="card-title">Who we are</h4>
+            <p class="card-copy">
+                Students building, learning, and sharing together.
+            </p>
         </div>
         <div class="glass-card">
-            <h4>What we build</h4>
-            <p>Redstone computers, Minecraft mods, and useful tooling.</p>
+            <h4 class="card-title">What we build</h4>
+            <p class="card-copy">
+                Redstone computers, Minecraft mods, and useful tooling.
+            </p>
         </div>
         <div class="glass-card">
-            <h4>Who can join</h4>
-            <p>Anyone curious about Minecraft, redstone, or computing.</p>
+            <h4 class="card-title">Who can join</h4>
+            <p class="card-copy">
+                Anyone curious about Minecraft, redstone, or computing.
+            </p>
         </div>
     </div>
 
-    <p>
+    <p class="page-copy">
         Some resources are listed below to help you get started and become an
         official redstone engineer!
     </p>
@@ -93,7 +101,7 @@
     }
 
     .irc-title {
-        font-size: clamp(2.5rem, calc(6cqw), 9rem);
+        font-size: var(--page-title-size);
         font-weight: 700;
         text-align: center;
         text-transform: uppercase;
@@ -101,55 +109,32 @@
         display: flex;
         width: 100%;
         justify-content: center;
-        gap: 3rem;
+        gap: var(--page-title-gap);
 
-        margin-top: 10rem;
+        margin-block: var(--page-title-margin-top) var(--page-title-margin);
 
         filter: saturate(1.2);
 
         @container title (width < 48rem) {
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: var(--page-compact-gap);
 
-            font-size: clamp(3rem, calc(10cqw), 7rem);
+            font-size: var(--page-title-size-mobile);
 
-            margin-top: 5rem;
+            margin-block-start: var(--page-title-margin-top-mobile);
         }
     }
 
     .blurb {
         text-align: left;
-
-        h3 {
-            font-size: 1.7rem;
-            font-weight: 400;
-            margin: 2rem;
-        }
-
-        p {
-            color: var(--color-text-slightly-muted);
-            font-size: 1.1rem;
-            margin: 2rem;
-        }
     }
 
     .organization-details {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.5rem;
-        margin: 2rem;
-
-        h4 {
-            color: var(--color-text);
-            font-size: 1.35rem;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            color: var(--color-text-slightly-muted);
-            font-size: 1rem;
-        }
+        gap: var(--page-content-gap);
+        margin: var(--page-space);
 
         /* @container page (width < 56rem) {
             grid-template-columns: 1fr;
@@ -157,14 +142,14 @@
     }
 
     .buttons {
-        margin: 2rem;
+        margin: var(--page-space);
         display: flex;
-        gap: 2rem;
+        gap: var(--page-space);
 
         @container page (width < 48rem) {
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: var(--page-compact-gap);
             margin-inline: 0;
         }
     }

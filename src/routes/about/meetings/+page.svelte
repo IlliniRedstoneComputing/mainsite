@@ -1,6 +1,6 @@
-<h1>Meetings</h1>
+<h1 class="page-title">Meetings</h1>
 
-<p>
+<p class="page-copy">
     We hold general meetings every week on Tuesday at 7:00 PM. We will always
     meet in the ECEB, however, we do not have a dedicated room. We usually
     announce the room about 30 minutes before the meeting on our discord server.
@@ -8,18 +8,18 @@
 
 <div class="info-cards">
     <div class="glass-card">
-        <h3>When?</h3>
-        <p class="bold">Tuesdays at 7:00 PM to 8:00 PM</p>
+        <h3 class="page-heading">When?</h3>
+        <p class="card-copy bold">Tuesdays at 7:00 PM to 8:00 PM</p>
     </div>
     <div class="glass-card">
-        <h3>Where?</h3>
-        <p class="bold">ECEB</p>
+        <h3 class="page-heading">Where?</h3>
+        <p class="card-copy bold">ECEB</p>
     </div>
     <div class="glass-card">Be there or be square!</div>
 </div>
 
 <div class="transition-2">
-    <h3>Past Meetings</h3>
+    <h3 class="page-heading">Past Meetings</h3>
 </div>
 
 <div class="transition-3"></div>
@@ -28,8 +28,8 @@
     .info-cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        gap: var(--page-content-gap);
 
-        padding-block: 3rem;
+        padding-block: var(--page-section-space);
     }
 </style>
