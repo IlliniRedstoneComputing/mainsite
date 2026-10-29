@@ -37,8 +37,7 @@
     type="button"
     aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
     aria-expanded={menuOpen}
-    onclick={() => (menuOpen = !menuOpen)}
->
+    onclick={() => (menuOpen = !menuOpen)}>
     <img src={hamburger} alt="" />
 </button>
 {#if menuOpen}
@@ -46,12 +45,11 @@
         class="menu-backdrop"
         type="button"
         aria-label="Close navigation menu"
-        onclick={() => (menuOpen = false)}
-    ></button>
+        onclick={() => (menuOpen = false)}></button>
 {/if}
-<div class="wip-banner">
+<!-- <div class="wip-banner">
     <p>This is a work in progress!</p>
-</div>
+</div> -->
 <div class="container">
     <aside class:open={menuOpen}>
         <div class="title font-chakra">
@@ -59,17 +57,14 @@
                 <TextShadow3D
                     color="var(--color-illini-orange-dark)"
                     textColor="var(--color-illini-orange)"
-                    x="0.03125rem">I</TextShadow3D
-                >
+                    x="0.03125rem">I</TextShadow3D>
                 <TextShadow3D
                     color="var(--color-redstone-dark)"
-                    textColor="var(--color-redstone)">R</TextShadow3D
-                >
+                    textColor="var(--color-redstone)">R</TextShadow3D>
                 <TextShadow3D
                     color="var(--color-illini-blue-dark)"
                     textColor="var(--color-illini-blue)"
-                    x="-0.03125rem">C</TextShadow3D
-                >
+                    x="-0.03125rem">C</TextShadow3D>
             </h1>
         </div>
         <nav class="links" aria-label="Primary navigation">
@@ -78,62 +73,51 @@
             </div>
             <div
                 class="link-category"
-                class:active={page.url.pathname.startsWith("/about")}
-            >
+                class:active={page.url.pathname.startsWith("/about")}>
                 <a href="/about" class="about category-header">About</a>
                 <div class="sub-links">
                     <a
                         href="/about#faq"
                         class="about-faq"
                         class:active={page.url.pathname === "/about" &&
-                            page.url.hash === "#faq"}><span>FAQ</span></a
-                    >
+                            page.url.hash === "#faq"}><span>FAQ</span></a>
                     <a
-                        href="/about#meetings"
-                        class="about-meetings"
-                        class:active={page.url.pathname === "/about" &&
-                            page.url.hash === "#meetings"}
-                    >
-                        <span>Meetings</span>
-                    </a>
+                        href="/about/meetings"
+                        class:active={page.url.pathname === "/about/meetings"}>
+                        <span>Meetings</span></a>
                 </div>
             </div>
             <div
                 class="link-category"
-                class:active={page.url.pathname.startsWith("/contact")}
-            >
+                class:active={page.url.pathname.startsWith("/contact")}>
                 <a href="/contact" class="contact category-header">Contact</a>
                 <div class="sub-links">
                     <a
                         href="/contact#socials"
                         class="contact-socials"
                         class:active={page.url.pathname === "/contact" &&
-                            page.url.hash === "#socials"}
-                    >
+                            page.url.hash === "#socials"}>
                         <span>Socials</span>
                     </a>
                     <a
                         href="/contact#links"
                         class="contact-links"
                         class:active={page.url.pathname === "/contact" &&
-                            page.url.hash === "#links"}
-                    >
+                            page.url.hash === "#links"}>
                         <span>Links</span>
                     </a>
                     <a
                         href="/contact#members"
                         class="contact-members"
                         class:active={page.url.pathname === "/contact" &&
-                            page.url.hash === "#members"}
-                    >
+                            page.url.hash === "#members"}>
                         <span>Members</span>
                     </a>
                 </div>
             </div>
             <div
                 class="link-category"
-                class:active={page.url.pathname.startsWith("/projects")}
-            >
+                class:active={page.url.pathname.startsWith("/projects")}>
                 <a href="/projects" class="projects category-header">
                     Projects
                 </a>
@@ -141,19 +125,17 @@
                     <a
                         href="/projects/overture"
                         class:active={page.url.pathname ===
-                            "/projects/overture"}>Overture CPU</a
-                    >
+                            "/projects/overture"}>
+                        <span>Overture CPU</span></a>
                     <a
-                        href="/projects/brainfck"
-                        class:active={page.url.pathname ===
-                            "/projects/brainfck"}>Brainf***</a
-                    >
+                        href="/projects/lc3"
+                        class:active={page.url.pathname === "/projects/lc3"}
+                        ><span>LC-3</span></a>
                 </div>
             </div>
             <div
                 class="link-category"
-                class:active={page.url.pathname.startsWith("/guides")}
-            >
+                class:active={page.url.pathname.startsWith("/guides")}>
                 <a href="/logic" class="logic category-header">
                     Guides and Tutorials
                 </a>
@@ -161,18 +143,15 @@
                     <a
                         href="/guides"
                         class:active={page.url.pathname === "/guides"}
-                        >Getting Started</a
-                    >
+                        ><span>Getting Started</span></a>
                     <a
                         href="/guides/modpack"
                         class:active={page.url.pathname === "/guides/modpack"}
-                        >Modpack and Tooling</a
-                    >
+                        ><span>Modpack and Tooling</span></a>
                     <a
                         href="/guides/logic"
                         class:active={page.url.pathname == "/guides/logic"}
-                        >Into to Logic</a
-                    >
+                        ><span>Into to Logic</span></a>
                 </div>
             </div>
         </nav>
@@ -183,16 +162,14 @@
                     href="/discord"
                     target="_blank"
                     rel="noreferrer"
-                    color="var(--color-discord)"
-                >
+                    color="var(--color-discord)">
                     Discord
                 </Button>
                 <Button
                     href="https://www.instagram.com/illini_computing/"
                     target="_blank"
                     rel="noreferrer"
-                    color="var(--color-instagram)"
-                >
+                    color="var(--color-instagram)">
                     Instagram
                 </Button>
             </div>
@@ -226,11 +203,11 @@
     .container {
         display: flex;
         flex-direction: row;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
     }
     main {
-        width: calc(100% - 20rem);
+        width: calc(100vw - 20rem);
         height: 100vh;
         margin-left: 20rem;
         overflow-y: auto;

@@ -9,28 +9,25 @@
         <TextShadow3D
             color="var(--color-illini-orange)"
             textColor="var(--color-illini-orange)"
-            x="0.05rem"
+            x="0.0rem"
             y="0.1rem"
-            depth={8}
-        >
+            depth={8}>
             Illini
         </TextShadow3D>
         <TextShadow3D
             color="var(--color-redstone)"
             textColor="var(--color-redstone)"
-            x="0rem"
+            x="0.0rem"
             y="0.1rem"
-            depth={8}
-        >
+            depth={8}>
             Redstone
         </TextShadow3D>
         <TextShadow3D
             color="var(--color-illini-blue)"
             textColor="var(--color-illini-blue)"
-            x="-0.05rem"
+            x="0.0rem"
             y="0.1rem"
-            depth={8}
-        >
+            depth={8}>
             Computing
         </TextShadow3D>
     </h1>
@@ -39,10 +36,39 @@
 <div class="blurb transition-2">
     <h3>Welcome to the Illini Redstone Computing community!</h3>
     <p>
-        SHORT BLURB:Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Dolor in maiores, adipisci quas molestiae ratione voluptatum? Eius quo
-        est nihil quae. Enim quasi repellendus quidem dicta possimus, laboriosam
-        quo totam!
+        We are a group of students at the University of Illinois
+        Urbana-Champaign who are passionate about Minecraft and redstone. We
+        create complex redstone circuitry to have fun and learn about computer
+        architecture and logic design. We also build mods and tooling to enhance
+        our building experience.
+    </p>
+    <p>
+        While we are an ECE redstone organization, we welcome anyone who is
+        interested in redstone and Minecraft to join us. We have a discord
+        server where we discuss redstone, share our builds, and help each other
+        with our projects. We also have regular meetings where we brainstorm,
+        work on our builds, and learn with each other.
+    </p>
+    <p>A few details about our organization:</p>
+
+    <div class="organization-details">
+        <div class="glass-card">
+            <h4>Who we are</h4>
+            <p>Students building, learning, and sharing together.</p>
+        </div>
+        <div class="glass-card">
+            <h4>What we build</h4>
+            <p>Redstone computers, Minecraft mods, and useful tooling.</p>
+        </div>
+        <div class="glass-card">
+            <h4>Who can join</h4>
+            <p>Anyone curious about Minecraft, redstone, or computing.</p>
+        </div>
+    </div>
+
+    <p>
+        Some resources are listed below to help you get started and become an
+        official redstone engineer!
     </p>
 </div>
 
@@ -57,7 +83,7 @@
 </div>
 
 <div class="animation-toggle">
-    <Switch2 />
+    <!-- <Switch2 /> -->
 </div>
 
 <style>
@@ -93,7 +119,7 @@
     }
 
     .blurb {
-        text-align: center;
+        text-align: left;
 
         h3 {
             font-size: 1.7rem;
@@ -102,9 +128,32 @@
         }
 
         p {
-            color: var(--color-text-muted);
+            color: var(--color-text-slightly-muted);
             font-size: 1.1rem;
+            margin: 2rem;
         }
+    }
+
+    .organization-details {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin: 2rem;
+
+        h4 {
+            color: var(--color-text);
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: var(--color-text-slightly-muted);
+            font-size: 1rem;
+        }
+
+        /* @container page (width < 56rem) {
+            grid-template-columns: 1fr;
+        } */
     }
 
     .buttons {

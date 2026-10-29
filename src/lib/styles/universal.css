@@ -137,7 +137,7 @@
 
     /* --- Glass & Aero Borders --- */
     --glass-border-subtle: 1px solid rgba(255, 255, 255, 0.1);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+    --glass-border: 2px solid rgba(255, 255, 255, 0.2);
     --glass-border-highlight: 1px solid rgba(255, 255, 255, 0.35);
     --glass-border-glow: 1px solid rgba(0, 229, 255, 0.45);
     --glass-highlight: var(--glass-border-highlight);
@@ -219,7 +219,7 @@
     background: var(--glass-bg-card);
     -webkit-backdrop-filter: var(--glass-blur);
     border: var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    /* box-shadow: var(--glass-shadow); */
     padding: var(--padding-lg);
 }
 
