@@ -1,6 +1,5 @@
 <script lang="ts">
     import Button from "$lib/components/Button.svelte";
-    import Switch2 from "$lib/components/Switch2.svelte";
     import TextShadow3D from "$lib/components/TextShadow3D.svelte";
 </script>
 
@@ -33,10 +32,11 @@
     </h1>
 </div>
 
+<div class="content-page content-page--home">
 <div class="blurb">
-    <h3 class="page-heading">
-        Welcome to the Illini Redstone Computing community!
-    </h3>
+    <h2 class="page-heading">
+        Minecraft, redstone, and computing at Illinois
+    </h2>
     <p class="page-copy">
         We are a group of students at the University of Illinois
         Urbana-Champaign who are passionate about Minecraft and redstone. We
@@ -51,47 +51,46 @@
         with our projects. We also have regular meetings where we brainstorm,
         work on our builds, and learn with each other.
     </p>
-    <p class="page-copy">A few details about our organization:</p>
 
-    <div class="organization-details">
-        <div class="glass-card">
-            <h4 class="card-title">Who we are</h4>
+
+    <div class="card-grid">
+        <div class="info-card">
+            <h3 class="card-title">Who we are</h3>
             <p class="card-copy">
-                Students building, learning, and sharing together.
+                Students at the University of Illinois Urbana-Champaign.
             </p>
         </div>
-        <div class="glass-card">
-            <h4 class="card-title">What we build</h4>
+        <div class="info-card" style="--card-accent: var(--color-redstone)">
+            <h3 class="card-title">What we build</h3>
             <p class="card-copy">
                 Redstone computers, Minecraft mods, and useful tooling.
             </p>
         </div>
-        <div class="glass-card">
-            <h4 class="card-title">Who can join</h4>
+        <div class="info-card" style="--card-accent: var(--color-illini-orange)">
+            <h3 class="card-title">Who can join</h3>
             <p class="card-copy">
                 Anyone curious about Minecraft, redstone, or computing.
             </p>
         </div>
     </div>
 
+    <div class="section">
     <p class="page-copy">
-        Some resources are listed below to help you get started and become an
-        official redstone engineer!
+        Join our Discord, check the meeting schedule, or read the setup guides.
     </p>
+    </div>
 </div>
 
-<div class="buttons transition-3">
+<div class="action-row transition-3">
     <Button href="/discord" color="var(--color-discord)" target="_blank">
         Join Discord
     </Button>
-    <Button href="/about#meetings" color="var(--color-illini-blue)">
+    <Button href="/about/meetings" color="var(--color-illini-blue)">
         Meeting Info
     </Button>
-    <Button href="/guides" color="var(--color-redstone)">Get Started!</Button>
+    <Button href="/guides" color="var(--color-redstone)">Setup guides</Button>
 </div>
 
-<div class="animation-toggle">
-    <!-- <Switch2 /> -->
 </div>
 
 <style>
@@ -130,33 +129,4 @@
         text-align: left;
     }
 
-    .organization-details {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: var(--page-content-gap);
-        margin: var(--page-space);
-
-        /* @container page (width < 56rem) {
-            grid-template-columns: 1fr;
-        } */
-    }
-
-    .buttons {
-        margin: var(--page-space);
-        display: flex;
-        gap: var(--page-space);
-
-        @container page (width < 48rem) {
-            flex-direction: column;
-            align-items: center;
-            gap: var(--page-compact-gap);
-            margin-inline: 0;
-        }
-    }
-
-    .animation-toggle {
-        position: fixed;
-        right: 2rem;
-        bottom: 2rem;
-    }
 </style>

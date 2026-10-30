@@ -2,9 +2,14 @@
     import BadgeList from "$lib/components/BadgeList.svelte";
 </script>
 
-<h1 class="page-title">Modpack and Tool Guide</h1>
+<svelte:head><title>Modpack and tools | Illini Redstone Computing</title></svelte:head>
 
-<BadgeList badgeIds={["guide", "tutorial"]} />
+<div class="content-page">
+<header class="intro transition-1">
+    <p class="eyebrow">Guides</p>
+    <h1 class="content-title">Modpack and tools</h1>
+    <BadgeList badgeIds={["guide", "tutorial"]} />
+</header>
 
 <h2 class="page-heading">Minecraft Launcher</h2>
 
@@ -16,7 +21,7 @@
     one yourself with the mod list.
 </p>
 
-<div class="transition-2">
+<section class="section transition-2">
     <h3 class="page-heading">Installing Modrinth</h3>
 
     <p class="page-copy">
@@ -34,9 +39,9 @@
         . Once downloaded and installed, you will have to sign into your Microsoft
         account to verify that you own the game.
     </p>
-</div>
+</section>
 
-<div class="transition-3">
+<section class="section transition-3">
     <h3 class="page-heading">Installing the Modpack</h3>
 
     <p class="page-copy">
@@ -64,13 +69,14 @@
         The full mod list will be included at the bottom of the guide.
     </p>
 
-    <hr />
 
-    <h2 class="page-heading">Modpack List</h2>
-</div>
 
-<div class="modlist">
-    <div class="mod-category glass-card">
+</section>
+
+<section class="section" aria-labelledby="mod-list">
+<h2 id="mod-list" class="page-heading">Mod list</h2>
+<div class="card-grid card-grid--two">
+    <div class="info-card">
         <h4 class="card-title">Building</h4>
 
         <ul>
@@ -96,7 +102,7 @@
             </li>
         </ul>
     </div>
-    <div class="mod-category glass-card">
+    <div class="info-card">
         <h4 class="card-title">Redstone and Debug</h4>
 
         <ul>
@@ -134,7 +140,7 @@
             </li>
         </ul>
     </div>
-    <div class="mod-category glass-card">
+    <div class="info-card">
         <h4 class="card-title">Game Utility</h4>
 
         <ul>
@@ -156,7 +162,7 @@
             </li>
         </ul>
     </div>
-    <div class="mod-category glass-card">
+    <div class="info-card">
         <h4 class="card-title">Performance and Visual</h4>
 
         <ul>
@@ -173,7 +179,7 @@
             <li>Lithium</li>
         </ul>
     </div>
-    <div class="mod-category glass-card">
+    <div class="info-card">
         <h4 class="card-title">Library and Core</h4>
 
         <ul>
@@ -187,36 +193,9 @@
         </ul>
     </div>
 </div>
+</section>
+</div>
 
 <style>
-    .mod-description {
-        color: var(--color-text-muted);
-        padding-left: 0.5rem;
-    }
-
-    hr {
-        margin-block: var(--page-section-space);
-    }
-
-    ul {
-        margin: var(--page-space);
-        padding-left: var(--page-space);
-    }
-
-    .modlist {
-        display: grid;
-        grid-template-columns: repeat(
-            auto-fit,
-            minmax(min(var(--page-grid-min-width), 100%), 1fr)
-        );
-        gap: var(--page-compact-gap);
-
-        padding-block: var(--page-section-space);
-    }
-
-    .mod-category {
-        .card-title {
-            text-align: center;
-        }
-    }
+    .mod-description { color: var(--color-text-muted); }
 </style>

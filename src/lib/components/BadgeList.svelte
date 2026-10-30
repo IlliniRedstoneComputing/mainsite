@@ -29,7 +29,7 @@
         {
             id: "completed",
             name: "Completed",
-            color: "var(--color-green)",
+            color: "var(--color-success)",
         },
     ] as const;
 
@@ -60,10 +60,10 @@
 
     .badge {
         padding: 0.25rem 0.5rem;
-        border-radius: 0.25rem;
         font-size: 0.875rem;
         font-weight: 700;
-        color: white;
-        background-color: var(--badge-color);
+        color: var(--badge-color);
+        background-color: color-mix(in srgb, var(--badge-color) 12%, var(--color-bg));
+        border: 1px solid color-mix(in srgb, var(--badge-color) 50%, transparent);
     }
 </style>

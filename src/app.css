@@ -70,100 +70,38 @@ a:hover {
     text-shadow: 0 0 8px var(--color-accent-glow);
 }
 
-/* Give each staged element its own transition snapshot. */
-.transition-1 {
-    view-transition-name: transition-1;
-}
+/* Name only headings and prose, never cards or wrappers containing cards.
+   Route-specific names prevent snapshots from morphing between unrelated positions. */
+.transition-1 { view-transition-name: var(--page-stage-1); view-transition-class: stage-1; }
+.transition-2 { view-transition-name: var(--page-stage-2); view-transition-class: stage-2; }
+.transition-3 { view-transition-name: var(--page-stage-3); view-transition-class: stage-3; }
+.transition-4 { view-transition-name: var(--page-stage-4); view-transition-class: stage-4; }
 
-.transition-2 {
-    view-transition-name: transition-2;
+/* Disable the default geometry interpolation responsible for diagonal movement. */
+::view-transition-group(*) { animation: none; }
+::view-transition-old(*) {
+    animation: page-exit 220ms cubic-bezier(.4, 0, 1, 1) both;
 }
-
-.transition-3 {
-    view-transition-name: transition-3;
+::view-transition-new(*) {
+    animation: page-enter 360ms cubic-bezier(.16, 1, .3, 1) both;
 }
+::view-transition-new(.stage-2) { animation-delay: 40ms; }
+::view-transition-new(.stage-3) { animation-delay: 80ms; }
+::view-transition-new(.stage-4) { animation-delay: 120ms; }
+::view-transition-old(root), ::view-transition-new(root),
+::view-transition-old(sidebar), ::view-transition-new(sidebar) { animation: none; }
 
-.transition-4 {
-    view-transition-name: transition-4;
+@keyframes page-enter {
+    from { opacity: 0; transform: translateY(1rem); }
+    to { opacity: 1; transform: translateY(0); }
 }
-
-::view-transition-group(sidebar),
-::view-transition-old(sidebar),
-::view-transition-new(sidebar) {
-    animation: none;
+@keyframes page-exit {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-1rem); }
 }
-
-::view-transition-old(transition-1),
-::view-transition-new(transition-1),
-::view-transition-old(transition-2),
-::view-transition-new(transition-2),
-::view-transition-old(transition-3),
-::view-transition-new(transition-3),
-::view-transition-old(transition-4),
-::view-transition-new(transition-4) {
-    animation-duration: 480ms;
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-::view-transition-new(transition-1) {
-    animation-name: page-enter-from-top;
-}
-
-::view-transition-old(transition-1) {
-    animation-name: page-exit-to-top;
-}
-
-::view-transition-new(transition-2) {
-    animation-name: page-enter-from-top;
-    animation-delay: 70ms;
-}
-
-::view-transition-old(transition-2) {
-    animation-name: page-exit-to-top;
-    animation-delay: 70ms;
-}
-
-::view-transition-new(transition-3) {
-    animation-name: page-enter-from-top;
-    animation-delay: 140ms;
-}
-
-::view-transition-old(transition-3) {
-    animation-name: page-exit-to-top;
-    animation-delay: 140ms;
-}
-
-::view-transition-new(transition-4) {
-    animation-name: page-enter-from-top;
-    animation-delay: 210ms;
-}
-
-::view-transition-old(transition-4) {
-    animation-name: page-exit-to-top;
-    animation-delay: 210ms;
-}
-
-@keyframes page-enter-from-top {
-    from {
-        opacity: 0;
-        transform: translateY(-2rem);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes page-exit-to-top {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-2rem);
-    }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; }
+    ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
 
 /* Global scrollbar styling to match Aero Glass look */

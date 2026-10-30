@@ -13,17 +13,23 @@
     let { children } = $props();
     let menuOpen = $state(false);
 
+    let activeTransition: ViewTransition | undefined;
+
     onNavigate(navigation => {
         menuOpen = false;
-        if (typeof document === "undefined" || !document.startViewTransition) {
+        if (typeof document === "undefined" || !document.startViewTransition ||
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+            navigation.from?.url.pathname === navigation.to?.url.pathname) {
             return;
         }
 
+        activeTransition?.skipTransition();
         return new Promise<void>(resolve => {
-            document.startViewTransition(async () => {
+            activeTransition = document.startViewTransition(async () => {
                 resolve();
                 await navigation.complete;
             });
+            void activeTransition.finished.catch(() => {});
         });
     });
 </script>
@@ -177,7 +183,12 @@
     </aside>
     <main>
         <GridSnakes pause={!animationState.enabled} />
-        <div class="page-content">
+        <div class="page-content"
+            style:--page-stage-1={`page-${page.url.pathname.replace(/[^a-z0-9]/gi, '-')}-1`}
+            style:--page-stage-2={`page-${page.url.pathname.replace(/[^a-z0-9]/gi, '-')}-2`}
+            style:--page-stage-3={`page-${page.url.pathname.replace(/[^a-z0-9]/gi, '-')}-3`}
+            style:--page-stage-4={`page-${page.url.pathname.replace(/[^a-z0-9]/gi, '-')}-4`}>
+
             {@render children()}
         </div>
     </main>
@@ -291,8 +302,8 @@
         padding: 0.5rem 0.75rem;
 
         transition:
-            background-color 0.1s ease-in-out,
-            border-color 0.1s ease-in-out;
+            background-color var(--transition-normal),
+            border-color var(--transition-normal);
 
         &.active {
             background-color: color-mix(in srgb, #fff 5%, var(--color-bg));
@@ -329,11 +340,11 @@
         position: relative;
         padding: 0.25rem 0;
 
-        transition: padding-left 0.1s ease-in-out;
+        transition: padding-left var(--transition-normal);
 
         span {
             display: inline-block;
-            transition: translate 0.1s ease-in-out;
+            transition: translate var(--transition-normal);
         }
 
         &:hover span {

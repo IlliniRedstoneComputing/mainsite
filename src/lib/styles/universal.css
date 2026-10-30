@@ -326,3 +326,285 @@
 .font-brand {
     font-family: var(--font-brand);
 }
+
+/* Shared content layouts. Use .content-page around page content;
+see README.md. */
+.content-page {
+    padding-block: clamp(4.5rem, 8cqw, 7rem) 4rem;
+}
+.content-page .intro {
+    max-width: 48rem;
+    margin-bottom: 2.5rem;
+}
+.content-page .eyebrow {
+    color: var(--color-accent);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+.content-page .content-title {
+    font-size: clamp(2.5rem, 6cqw, 5rem);
+    line-height: 1.1;
+    margin: .75rem 0 1.25rem;
+}
+.content-page .content-title span {
+    color: var(--color-illini-blue);
+}
+.content-page p {
+    color: var(--color-text-slightly-muted);
+}
+.content-page .intro > p:last-child {
+    font-size: var(--page-body-size);
+}
+.content-page .card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--content-grid-gap);
+}
+.content-page .info-card {
+    min-width: 0;
+    padding: 1.5rem;
+    background: var(--content-card-bg);
+    border: var(--glass-border);
+    border-top: 2px solid var(--card-accent, var(--color-primary));
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-wrap: anywhere;
+}
+.content-page .info-card h3 {
+    font-size: var(--card-title-size);
+}
+.content-page .info-card > a:last-child {
+    margin-top: auto;
+}
+.content-page .stat {
+    font-size: clamp(1.5rem, 3cqw, 2rem);
+    font-weight: 700;
+    color: var(--color-text);
+}
+.content-page .section {
+    margin-top: 3.5rem;
+    scroll-margin-top: 2rem;
+}
+.content-page .section-heading {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+.content-page h2 {
+    font-size: var(--page-heading-size);
+}
+.content-page .callout {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border: var(--glass-border);
+    border-left: 3px solid var(--color-redstone);
+    background: var(--content-card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+.content-page .callout h2 {
+    margin-bottom: .5rem;
+}
+.content-page .callout .action {
+    flex-shrink: 0;
+}
+
+.content-page .placeholder {
+    color: var(--color-text-muted);
+    font-size: .95rem;
+}
+.content-page .empty-state {
+    padding: 2rem;
+    border: 1px dashed var(--color-text-dim);
+    background: rgba(11, 16, 30, .75);
+}
+.content-page .empty-state h3 {
+    margin-bottom: .5rem;
+}
+.content-page .section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem 1.5rem;
+    margin-bottom: 2rem;
+}
+.content-page a:focus-visible, .content-page button:focus-visible, .content-page input:focus-visible, .content-page summary:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+@container page (width < 52rem) {
+    .content-page .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@container page (width < 34rem) {
+    .content-page .card-grid {
+        grid-template-columns: 1fr;
+    }
+    .content-page .callout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* Use the same layout for prose, guides, and card collections. */
+:root {
+    --content-card-bg: rgba(11, 16, 30, .88);
+    --content-grid-gap: 1.25rem;
+}
+.content-page .page-heading {
+    margin: 0 0 1rem;
+}
+.content-page .page-copy {
+    margin: 0 0 1.5rem;
+    max-width: 75ch;
+}
+.content-page .card-title, .content-page .card-copy {
+    margin: 0;
+}
+.content-page .prose {
+    max-width: 75ch;
+}
+.content-page .prose > * + * {
+    margin-top: 1rem;
+}
+.content-page .card-grid--two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.content-page .action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.content-page .action-row > * {
+    flex: 1 1 12rem;
+}
+.content-page .info-card ul {
+    padding-left: 1.25rem;
+    color: var(--color-text-slightly-muted);
+}
+.content-page .info-card li + li {
+    margin-top: .5rem;
+}
+.content-page .intro .badges {
+    margin-inline: 0;
+}
+.content-page--home {
+    padding-top: 0;
+}
+@container page (width < 34rem) {
+    .content-page .card-grid--two {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Flat buttons: use .action on an anchor or a native button. */
+.action {
+    --button-color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    min-height: 2.75rem;
+    padding: .65rem 1rem;
+    border: 1px solid var(--button-color);
+    border-radius: 0;
+    background: color-mix(in srgb, var(--button-color) 35%, var(--color-bg));
+    color: var(--color-text);
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition-normal),
+        border-color var(--transition-normal), color var(--transition-normal),
+        transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+.action:hover, .action:focus-visible {
+    color: var(--color-text);
+    background: color-mix(in srgb, var(--button-color) 55%, var(--color-bg));
+    border-color: color-mix(in srgb, var(--button-color) 70%, white);
+    transform: translateY(-2px);
+    text-shadow: none;
+}
+.action:active { transform: translateY(0); }
+.action[aria-pressed="true"] {
+    border-color: var(--color-accent);
+    background: var(--color-bg-alt);
+    color: var(--color-accent);
+}
+.button-block { width: 100%; }
+:where(a, button, input, summary):focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* Highlights change color without moving cards or their backdrop layers. */
+.content-page .info-card, .content-page .callout {
+    transition: border-color var(--transition-normal), background-color var(--transition-normal);
+}
+.content-page .info-card:hover, .content-page .info-card:focus-within {
+    border-color: color-mix(in srgb, var(--card-accent, var(--color-primary)) 65%, var(--color-text-dim));
+}
+
+/* Native details keeps keyboard support and works without JavaScript.
+   Browsers without intrinsic-size animation retain normal details behavior. */
+.accordion { interpolate-size: allow-keywords; }
+.accordion summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 600;
+    list-style: none;
+    transition: color var(--transition-normal);
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary:hover { color: var(--color-accent); }
+.accordion summary span {
+    color: var(--color-accent);
+    font-size: 1.5rem;
+    transition: transform var(--transition-normal);
+}
+.accordion[open] summary span { transform: rotate(45deg); }
+@supports (interpolate-size: allow-keywords) and selector(::details-content) {
+    .accordion::details-content {
+        block-size: 0;
+        opacity: 0;
+        overflow: clip;
+        transition: block-size var(--transition-normal), opacity var(--transition-normal),
+            content-visibility var(--transition-normal) allow-discrete;
+    }
+    .accordion[open]::details-content { block-size: auto; opacity: 1; }
+}
+
+/* Fixed space for a transparent, pre-rendered Minecraft skin image. */
+.skin-preview {
+    display: grid;
+    place-items: center;
+    min-height: 15rem;
+    padding: 1rem;
+    border: 1px dashed var(--color-text-dim);
+    background: var(--glass-bg-subtle);
+}
+.skin-preview img { width: 100%; height: 13rem; object-fit: contain; image-rendering: pixelated; }
+.skin-preview .placeholder { max-width: 20ch; text-align: center; }
+
+@media (prefers-reduced-motion: reduce) {
+    .action, .accordion summary, .accordion summary span,
+    .accordion::details-content, .content-page .info-card, .content-page .callout {
+        transition: none;
+    }
+    .action:hover, .action:focus-visible { transform: none; }
+}
